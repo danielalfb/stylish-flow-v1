@@ -6,8 +6,12 @@
   "author": "danielalfb <danielalfbarbosa@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "concurrently \"cd packages/frontend && yarn start\" \"cd packages/backend && yarn start\"",
-    "build": "vite build",
-    "preview": "vite preview"
+    "start": "json-server --watch db.json --port 3004"
+  },
+  "devDependencies": {
+    "concurrently": "^7.4.0"
+  },
+  "dependencies": {
+    "json-server": "^0.17.0"
   }
 }
