@@ -1,19 +1,21 @@
 {
-  "posts": [
+  "services": [
     {
       "id": 1,
       "title": "json-server",
       "author": "typicode"
     }
   ],
-  "comments": [
+  "clients": [
     {
       "id": 1,
       "body": "some comment",
       "postId": 1
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "employees": [
+    {
+      "name": "typicode"
+    }
+  ]
 }

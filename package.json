@@ -9,5 +9,12 @@
     "dev": "concurrently \"cd packages/frontend && yarn start\" \"cd packages/backend && yarn start\"",
     "build": "vite build",
     "preview": "vite preview"
+  },
+  "dependencies": {
+    "eslint": "^8.23.1",
+    "prettier": "^2.7.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-react": "^7.31.8"
   }
 }
