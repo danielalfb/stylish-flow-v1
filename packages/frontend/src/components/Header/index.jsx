@@ -1,51 +1,57 @@
 import { useState } from 'react';
-import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography } from '@mui/material';
 import { FiMenu } from 'react-icons/fi';
+import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, SvgIcon, Toolbar, Tooltip, Typography } from '@mui/material';
+import { useLocation, useNavigate } from 'react-router-dom';
+import Logo from '../../assets/logo.svg'
 
-const pages = ['Serviços Vendidos', 'Serviços Ativos', 'Histórico'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = [
+  {
+    label: 'Serviços Vendidos', 
+    path: '/'
+  }, 
+  {
+    label: 'Serviços Ativos',
+    path: '/active'
+  }, 
+  {
+    label: 'Histórico',
+    path: '/history'
+  }
+];
 
 const Header = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
-  const [anchorElUser, setAnchorElUser] = useState(null);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
+  const redirectAndCloseNavMenu = (page) => {
+    navigate(page.path);
+    setAnchorElNav(null);
   };
 
   return (
     <AppBar position="static" color='white'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
+          <Box
+            component="img"
             sx={{
-              mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              marginRight: 2,
+              height: 40,
             }}
-          >
-            LOGO
-          </Typography>
-
+            onClick={() => navigate('/')}
+            alt="Flow"
+            src={Logo}
+          />
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
@@ -76,75 +82,41 @@ const Header = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page.label} onClick={() => redirectAndCloseNavMenu(page)}>
                   <Typography 
                     textAlign="center"
                     color="text"
                     sx={{ fontWeight: 600, textTransform: 'uppercase' }}
                   >
-                    {page}
+                    {page.label}
                   </Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
+
+          <Box
+            component="img"
             sx={{
-              mr: 2,
               display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
+              marginRight: 2,
+              height: 40,
             }}
-          >
-            LOGO
-          </Typography>
+            onClick={() => navigate('/')}
+            alt="Flow"
+            src={Logo}
+          />
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, fontWeight: 600, display: 'block' }}
+                color={page.path === pathname ? 'primary' : 'text'}
+                key={page.label}
+                onClick={() => redirectAndCloseNavMenu(page)}
+                sx={{ my: 2, fontWeight: page.path === pathname ? 600 : 500, display: 'block' }}
               >
-                {page}
+                {page.label}
               </Button>
             ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
           </Box>
         </Toolbar>
       </Container>

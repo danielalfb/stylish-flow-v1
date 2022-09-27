@@ -1,6 +1,8 @@
 import { Box, createTheme, ThemeProvider } from '@mui/material';
 import { red } from '@mui/material/colors';
+import { BrowserRouter } from 'react-router-dom';
 import MainLayout from './components/MainLayout';
+import DeclaredRoutes from './routes';
 
 const theme = createTheme({
 	palette: {
@@ -25,9 +27,11 @@ const theme = createTheme({
 function App() {
 	return (
 		<ThemeProvider theme={theme}>
-			<MainLayout>
-      its working
-			</MainLayout>
+			<BrowserRouter>
+				<MainLayout>
+					<DeclaredRoutes />
+				</MainLayout>
+			</BrowserRouter>
 		</ThemeProvider>
 	);
 }
