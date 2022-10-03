@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 
 const ITEM_HEIGHT = 48;
@@ -33,7 +32,6 @@ const names = [
 ];
 
 export default function MultipleSelectService() {
-  const theme = useTheme();
   const [services, setServices] = useState([]);
 
   const handleChange = (e) => {
@@ -45,15 +43,17 @@ export default function MultipleSelectService() {
 
   return (
     <>
-      <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
+      <FormControl sx={{ width: '100%', marginTop: 1 }}>
+        <InputLabel id="demo-multiple-chip-label">
+          Serviços Selecionados
+        </InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
           value={services}
           onChange={handleChange}
-          input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
+          input={<OutlinedInput id="select-multiple-chip" label="Serviços" />}
           renderValue={(selected) => (
             <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
               {selected.map((value) => (

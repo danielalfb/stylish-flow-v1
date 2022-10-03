@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { useState } from 'react';
 import {
   DialogActions,
   Button,
@@ -8,6 +8,7 @@ import {
   TextField,
   Box
 } from '@mui/material';
+import MultipleSelectService from './MultipleSelectService';
 
 const DefaultTasks = () => {
   return [
@@ -114,6 +115,7 @@ export default function AddServiceModal() {
               onChange={handleChange}
             />
           </Box>
+          <MultipleSelectService />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setOpenModal(false)}>Cancelar</Button>
