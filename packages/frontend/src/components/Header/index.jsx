@@ -1,18 +1,28 @@
 import { useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
-import { AppBar, Avatar, Box, Button, Container, IconButton, Menu, MenuItem, SvgIcon, Toolbar, Tooltip, Typography } from '@mui/material';
+import {
+  AppBar,
+  Box,
+  Button,
+  Container,
+  IconButton,
+  Menu,
+  MenuItem,
+  Toolbar,
+  Typography
+} from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Logo from '../../assets/logo.svg'
+import Logo from '../../assets/logo.svg';
 
 const pages = [
   {
-    label: 'Serviços Vendidos', 
+    label: 'Serviços Vendidos',
     path: '/'
-  }, 
+  },
   {
     label: 'Serviços Ativos',
     path: '/active'
-  }, 
+  },
   {
     label: 'Histórico',
     path: '/history'
@@ -38,7 +48,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" color='white'>
+    <AppBar position="static" color="white">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box
@@ -46,7 +56,7 @@ const Header = () => {
             sx={{
               display: { xs: 'none', md: 'flex' },
               marginRight: 2,
-              height: 40,
+              height: 40
             }}
             onClick={() => navigate('/')}
             alt="Flow"
@@ -68,22 +78,25 @@ const Header = () => {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
-                horizontal: 'left',
+                horizontal: 'left'
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'left',
+                horizontal: 'left'
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: 'block', md: 'none' },
+                display: { xs: 'block', md: 'none' }
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.label} onClick={() => redirectAndCloseNavMenu(page)}>
-                  <Typography 
+                <MenuItem
+                  key={page.label}
+                  onClick={() => redirectAndCloseNavMenu(page)}
+                >
+                  <Typography
                     textAlign="center"
                     color="text"
                     sx={{ fontWeight: 600, textTransform: 'uppercase' }}
@@ -100,7 +113,7 @@ const Header = () => {
             sx={{
               display: { xs: 'flex', md: 'none' },
               marginRight: 2,
-              height: 40,
+              height: 40
             }}
             onClick={() => navigate('/')}
             alt="Flow"
@@ -112,7 +125,11 @@ const Header = () => {
                 color={page.path === pathname ? 'primary' : 'text'}
                 key={page.label}
                 onClick={() => redirectAndCloseNavMenu(page)}
-                sx={{ my: 2, fontWeight: page.path === pathname ? 600 : 500, display: 'block' }}
+                sx={{
+                  my: 2,
+                  fontWeight: page.path === pathname ? 600 : 500,
+                  display: 'block'
+                }}
               >
                 {page.label}
               </Button>

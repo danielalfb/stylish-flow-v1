@@ -15,19 +15,17 @@
       "comments": [],
       "services": [],
       "tasks": [
-        { 
+        {
           "id": 1,
           "status": "NOT_INITIATED",
           "service": "Aguardando",
           "location": 0
-
         },
-        { 
+        {
           "id": 2,
           "status": "NOT_INITIATED",
           "service": "Lavagem",
           "location": 0
-
         },
         {
           "id": 3,
@@ -44,7 +42,7 @@
       ]
     }
   ],
-  
+
   "clients": [
     {
       "id": 1,
