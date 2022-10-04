@@ -6,38 +6,16 @@ import {
   DialogContent,
   DialogTitle,
   TextField,
-  Box
+  Box,
+  Grid
 } from '@mui/material';
 import MultipleSelectService from './MultipleSelectService';
-
-const DefaultTasks = () => {
-  return [
-    {
-      id: 1,
-      status: 'NOT_INITIATED',
-      service: 'Aguardando',
-      location: 0
-    },
-    {
-      id: 2,
-      status: 'NOT_INITIATED',
-      service: 'Lavagem',
-      location: 0
-    },
-    {
-      id: 3,
-      status: 'NOT_INITIATED',
-      service: 'Acabamento',
-      location: 0
-    },
-    {
-      id: 4,
-      status: 'NOT_INITIATED',
-      service: 'Especial',
-      location: 0
-    }
-  ];
-};
+import SingleSelectSeller from './SingleSelectSeller';
+import SingleSelectPayment from './SingleSelectPayment';
+import CommentsTextArea from '../CommentsTextArea';
+import TotalPriceCard from './TotalPriceCard';
+import { useEffect } from 'react';
+import { serviceOptions } from '../../util/ServiceOptions';
 
 export default function AddServiceModal() {
   const [openModal, setOpenModal] = useState(false);
@@ -47,10 +25,27 @@ export default function AddServiceModal() {
     plate: '',
     model: ''
   });
+  const [soldService, setSoldService] = useState({
+    seller: '',
+    payment: ''
+  });
+  const [services, setServices] = useState([]);
+  const [comment, setComment] = useState('');
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const handleChange = (e) => {
-    setClient({ ...client, [e.target.name]: e.target.value });
+    setClient({ ...client, [e.target.id]: e.target.value });
   };
+
+  useEffect(() => {
+    if (services.length > 0) {
+      const selectedService = serviceOptions
+        .filter((service) => services.includes(service.description))
+        .map((item) => item.price)
+        .reduce((acc, crr) => acc + crr);
+      setTotalPrice(selectedService);
+    }
+  }, [services]);
 
   return (
     <>
@@ -60,7 +55,7 @@ export default function AddServiceModal() {
         variant="contained"
         onClick={() => setOpenModal(true)}
       >
-        CADASTRAR SERVIÇO
+        Cadastrar Serviço
       </Button>
       <Dialog
         open={openModal}
@@ -69,53 +64,78 @@ export default function AddServiceModal() {
       >
         <DialogTitle color="primary">Novo serviço</DialogTitle>
         <DialogContent>
-          <Box>
-            <TextField
-              fullWidth
-              autoFocus
-              variant="outlined"
-              margin="dense"
-              id="client"
-              label="Cliente"
-              type="text"
-              value={client.name}
-              onChange={handleChange}
-            />
-            <TextField
-              autoFocus
-              fullWidth
-              variant="outlined"
-              margin="dense"
-              id="phone"
-              label="Telefone"
-              type="text"
-              value={client.phone}
-              onChange={handleChange}
-            />
-            <TextField
-              autoFocus
-              fullWidth
-              variant="outlined"
-              margin="dense"
-              id="plate"
-              label="Placa"
-              type="text"
-              value={client.plate}
-              onChange={handleChange}
-            />
-            <TextField
-              autoFocus
-              fullWidth
-              variant="outlined"
-              margin="dense"
-              id="model"
-              label="Modelo"
-              type="text"
-              value={client.model}
-              onChange={handleChange}
-            />
-          </Box>
-          <MultipleSelectService />
+          <Grid container spacing={1} rowSpacing={1}>
+            <Grid container item xs={6}>
+              <TextField
+                fullWidth
+                autoFocus
+                variant="outlined"
+                margin="dense"
+                id="clientName"
+                label="Cliente"
+                type="text"
+                value={client.clientName}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid container item xs={6}>
+              <TextField
+                autoFocus
+                fullWidth
+                variant="outlined"
+                margin="dense"
+                id="phone"
+                label="Telefone"
+                type="text"
+                value={client.phone}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid container item xs={6}>
+              <TextField
+                autoFocus
+                fullWidth
+                variant="outlined"
+                margin="dense"
+                id="plate"
+                label="Placa"
+                type="text"
+                value={client.plate}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid container item xs={6}>
+              <TextField
+                autoFocus
+                fullWidth
+                variant="outlined"
+                margin="dense"
+                id="model"
+                label="Modelo"
+                type="text"
+                value={client.model}
+                onChange={handleChange}
+              />
+            </Grid>
+            <Grid container item xs={6}>
+              <SingleSelectSeller
+                soldService={soldService}
+                setSoldService={setSoldService}
+              />
+            </Grid>
+            <Grid container item xs={6}>
+              <SingleSelectPayment
+                soldService={soldService}
+                setSoldService={setSoldService}
+              />
+            </Grid>
+          </Grid>
+          <MultipleSelectService
+            services={services}
+            setServices={setServices}
+          />
+          <CommentsTextArea comment={comment} setComment={setComment} />
+          <TotalPriceCard value={totalPrice} />
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setOpenModal(false)}>Cancelar</Button>

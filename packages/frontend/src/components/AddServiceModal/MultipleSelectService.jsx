@@ -6,6 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
+import { serviceOptions } from '../../util/ServiceOptions';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -18,22 +19,7 @@ const MenuProps = {
   }
 };
 
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder'
-];
-
-export default function MultipleSelectService() {
-  const [services, setServices] = useState([]);
-
+export default function MultipleSelectService({ services, setServices }) {
   const handleChange = (e) => {
     const {
       target: { value }
@@ -43,14 +29,13 @@ export default function MultipleSelectService() {
 
   return (
     <>
-      <FormControl sx={{ width: '100%', marginTop: 1 }}>
-        <InputLabel id="demo-multiple-chip-label">
-          Serviços Selecionados
-        </InputLabel>
+      <FormControl sx={{ width: '100%', marginTop: 2 }}>
+        <InputLabel id="demo-multiple-chip-label">Serviços</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"
           id="demo-multiple-chip"
           multiple
+          label="Serviços"
           value={services}
           onChange={handleChange}
           input={<OutlinedInput id="select-multiple-chip" label="Serviços" />}
@@ -63,9 +48,9 @@ export default function MultipleSelectService() {
           )}
           MenuProps={MenuProps}
         >
-          {names.map((name) => (
-            <MenuItem key={name} value={name}>
-              {name}
+          {serviceOptions?.map((item) => (
+            <MenuItem key={item.id} value={item.description}>
+              {item.description}
             </MenuItem>
           ))}
         </Select>
