@@ -1,47 +1,5 @@
 {
-  "services": [
-    {
-      "id": 1,
-      "client": {
-        "name": "Luis Figueiredo",
-        "phone": "",
-        "plate": "",
-        "model": ""
-      },
-      "payment_mode": "Card",
-      "responsible_employee": "Jessica Gonçalves",
-      "sold_at": null,
-      "initiated_at": null,
-      "comments": [],
-      "services": [],
-      "tasks": [
-        {
-          "id": 1,
-          "status": "NOT_INITIATED",
-          "service": "Aguardando",
-          "location": 0
-        },
-        {
-          "id": 2,
-          "status": "NOT_INITIATED",
-          "service": "Lavagem",
-          "location": 0
-        },
-        {
-          "id": 3,
-          "status": "NOT_INITIATED",
-          "service": "Acabamento",
-          "location": 0
-        },
-        {
-          "id": 4,
-          "status": "NOT_INITIATED",
-          "service": "Especial",
-          "location": 0
-        }
-      ]
-    }
-  ],
+  "services": [],
 
   "clients": [
     {
@@ -50,6 +8,7 @@
       "postId": 1
     }
   ],
+
   "employees": [
     {
       "name": "typicode"

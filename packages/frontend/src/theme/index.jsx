@@ -20,8 +20,8 @@ export const theme = createTheme({
   },
   typography: {
     h1: {
-      fontSize: '1.5rem',
-      fontWeight: 300
+      fontSize: '1.2rem',
+      fontWeight: 400
     },
     h5: {
       fontWeight: 600

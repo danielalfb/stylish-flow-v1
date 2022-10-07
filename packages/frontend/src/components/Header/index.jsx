@@ -22,11 +22,11 @@ const pages = [
   {
     label: 'Serviços Ativos',
     path: '/active'
-  },
-  {
-    label: 'Histórico',
-    path: '/history'
   }
+  // {
+  //   label: 'Histórico',
+  //   path: '/history'
+  // }
 ];
 
 const Header = () => {
@@ -48,7 +48,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" color="white">
+    <AppBar position="static" color="primary">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box
@@ -122,7 +122,7 @@ const Header = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                color={page.path === pathname ? 'primary' : 'text'}
+                color={page.path === pathname ? 'secondary' : 'white'}
                 key={page.label}
                 onClick={() => redirectAndCloseNavMenu(page)}
                 sx={{

@@ -6,7 +6,6 @@ import {
   DialogContent,
   DialogTitle,
   TextField,
-  Box,
   Grid
 } from '@mui/material';
 import MultipleSelectService from './MultipleSelectService';
@@ -37,6 +36,18 @@ export default function AddServiceModal() {
     setClient({ ...client, [e.target.id]: e.target.value });
   };
 
+  const handleSubmitService = async () => {
+    const reqBody = {
+      ...soldService,
+      client,
+      services,
+      price: totalPrice,
+      comment
+    };
+    const { data } = await api.post('/services', reqBody);
+    // console.log(reqBody);
+  };
+
   useEffect(() => {
     if (services.length > 0) {
       const selectedService = serviceOptions
@@ -44,6 +55,8 @@ export default function AddServiceModal() {
         .map((item) => item.price)
         .reduce((acc, crr) => acc + crr);
       setTotalPrice(selectedService);
+    } else {
+      return setTotalPrice(0);
     }
   }, [services]);
 
@@ -63,17 +76,17 @@ export default function AddServiceModal() {
         maxWidth="md"
       >
         <DialogTitle color="primary">Novo serviço</DialogTitle>
-        <DialogContent>
-          <Grid container spacing={1} rowSpacing={1}>
+        <DialogContent sx={{ paddingTop: '16px!important' }}>
+          <Grid container spacing={2} rowSpacing={2}>
             <Grid container item xs={6}>
               <TextField
                 fullWidth
                 autoFocus
                 variant="outlined"
-                margin="dense"
                 id="clientName"
                 label="Cliente"
                 type="text"
+                size="small"
                 value={client.clientName}
                 onChange={handleChange}
               />
@@ -83,10 +96,10 @@ export default function AddServiceModal() {
                 autoFocus
                 fullWidth
                 variant="outlined"
-                margin="dense"
                 id="phone"
                 label="Telefone"
                 type="text"
+                size="small"
                 value={client.phone}
                 onChange={handleChange}
               />
@@ -96,10 +109,10 @@ export default function AddServiceModal() {
                 autoFocus
                 fullWidth
                 variant="outlined"
-                margin="dense"
                 id="plate"
                 label="Placa"
                 type="text"
+                size="small"
                 value={client.plate}
                 onChange={handleChange}
               />
@@ -109,10 +122,10 @@ export default function AddServiceModal() {
                 autoFocus
                 fullWidth
                 variant="outlined"
-                margin="dense"
                 id="model"
                 label="Modelo"
                 type="text"
+                size="small"
                 value={client.model}
                 onChange={handleChange}
               />
@@ -139,7 +152,9 @@ export default function AddServiceModal() {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setOpenModal(false)}>Cancelar</Button>
-          <Button onClick={() => setOpenModal(false)}>Salvar</Button>
+          <Button onClick={handleSubmitService} disabled={totalPrice === 0}>
+            Salvar
+          </Button>
         </DialogActions>
       </Dialog>
     </>

@@ -16,10 +16,13 @@ export default function SingleSelectPayment({ soldService, setSoldService }) {
     setSoldService({ ...soldService, [e.target.name]: e.target.value });
   };
   return (
-    <FormControl fullWidth>
-      <InputLabel id="demo-simple-select-label">Pagamento</InputLabel>
+    <FormControl fullWidth size="small">
+      <InputLabel sx={{ m: 0 }} id="demo-simple-select-label">
+        Pagamento
+      </InputLabel>
       <Select
         labelId="demo-simple-select-label"
+        // size="small"
         id="payment"
         name="payment"
         value={soldService.payment}

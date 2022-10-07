@@ -2,7 +2,7 @@ import { Box, TextField } from '@mui/material';
 
 export default function CommentsTextArea({ comment, setComment }) {
   return (
-    <Box sx={{ marginTop: 2 }}>
+    <Box sx={{ width: '100%', marginTop: 1 }}>
       <TextField
         autoFocus
         fullWidth

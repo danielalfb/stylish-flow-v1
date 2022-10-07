@@ -12,7 +12,7 @@ export default function SingleSelectSeller({ soldService, setSoldService }) {
   };
 
   return (
-    <FormControl fullWidth>
+    <FormControl fullWidth size="small">
       <InputLabel id="demo-simple-select-label">Vendedor(a)</InputLabel>
       <Select
         labelId="demo-simple-select-label"
