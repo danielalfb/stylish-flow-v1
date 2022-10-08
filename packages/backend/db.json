@@ -12,10 +12,8 @@
       },
       "comment": "O mais rápido possível",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
-      "status": "ACTIVE",
+      "services": ["Lavagem EXPRESS"],
+      "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
       "createdAt": "2022-10-08T00:56:55.500Z"
@@ -32,10 +30,8 @@
       },
       "comment": [],
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
-      "status": "ACTIVE",
+      "services": ["Lavagem EXPRESS"],
+      "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
       "createdAt": "2022-10-08T00:56:55.500Z"
@@ -52,9 +48,7 @@
       },
       "comment": "",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
@@ -73,10 +67,8 @@
       },
       "comment": "Teste",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
-      "status": "NOT_INITIALIZED",
+      "services": ["Lavagem EXPRESS"],
+      "status": "CANCELED",
       "location": "1",
       "tasks": [],
       "createdAt": "2022-10-08T18:51:27.453Z"
@@ -94,9 +86,7 @@
       },
       "comment": "Teste",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "ACTIVE",
       "location": "1",
       "tasks": [

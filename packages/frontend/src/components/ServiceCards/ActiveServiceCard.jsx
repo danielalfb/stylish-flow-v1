@@ -6,11 +6,11 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { textTransform } from '@mui/system';
-import { Chip, Grid } from '@mui/material';
+import { Chip, Divider, Grid } from '@mui/material';
 import EditServiceModal from '../EditServiceModal';
 import CancelServiceModal from '../CancelServiceModal';
 
-export default function SoldServiceCard({ service, isPending }) {
+export default function ActiveServiceCard({ service }) {
   return (
     <Card sx={{ width: '100%' }}>
       <CardContent>
@@ -19,46 +19,47 @@ export default function SoldServiceCard({ service, isPending }) {
           direction={{ xs: 'column', md: 'row' }}
           justifyContent={{ xs: 'flex-start', md: 'space-between' }}
         >
-          <Box
-            sx={{ display: 'flex', alignItems: 'center', fontSize: 16, gap: 1 }}
-          >
-            <Typography sx={{ fontWeight: 600 }} color="text" gutterBottom>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Typography
+              sx={{ fontSize: 20, fontWeight: 600 }}
+              color="text"
+              gutterBottom
+            >
               {service.client.plate}
             </Typography>
-            <Typography color="text" gutterBottom>
+            <Typography sx={{ fontSize: 20 }} color="text" gutterBottom>
               {service.client.model}
             </Typography>
           </Box>
-          <Typography sx={{ fontSize: 10 }} color="text.secondary" gutterBottom>
-            {new Date(service.createdAt).toLocaleString('pt-PT')}
-          </Typography>
         </Grid>
-
-        <Typography
-          sx={{ mb: 1.5, textTransform: 'uppercase' }}
-          color="text.secondary"
-        >
-          {service.client.clientName}
-        </Typography>
+        <Divider />
         <Box
           sx={{
             display: 'flex',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: 1
+            flexDirection: 'column',
+            gap: 1,
+            marginTop: 2
           }}
         >
+          <Typography variant="h6">
+            {service.tasks[service.tasks.length - 1].description}
+          </Typography>
+          <Typography sx={{ fontSize: 14 }}>
+            {service.tasks[service.tasks.length - 1].employee}
+          </Typography>
           {service.services.map((item, index) => (
-            <Chip key={index} label={item} size="small" />
+            <Typography sx={{ fontSize: 14 }} key={index}>
+              {item}
+            </Typography>
           ))}
         </Box>
       </CardContent>
-      <CardActions sx={{ justifyContent: 'flex-end' }}>
+      {/* <CardActions sx={{ justifyContent: 'flex-end' }}>
         {service.status !== 'CANCELED' && service.status !== 'FINISHED' && (
           <CancelServiceModal service={service} />
         )}
         {isPending && <EditServiceModal service={service} />}
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 }
