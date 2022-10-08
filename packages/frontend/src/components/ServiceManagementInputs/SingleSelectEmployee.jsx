@@ -3,26 +3,21 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { employeeOptions } from '../../util/ServiceOptions';
 
-const servicesOptions = ['Jessica', 'Diogo', 'Caio', 'Matheus'];
-
-export default function SingleSelectSeller({ soldService, setSoldService }) {
-  const handleChange = (e) => {
-    setSoldService({ ...soldService, [e.target.name]: e.target.value });
-  };
-
+export default function SingleSelectEmployee({ value, handleChange }) {
   return (
     <FormControl fullWidth size="small">
-      <InputLabel id="demo-simple-select-label">Vendedor(a)</InputLabel>
+      <InputLabel id="demo-simple-select-label">Colaborador(a)</InputLabel>
       <Select
         labelId="demo-simple-select-label"
-        id="seller"
-        name="seller"
-        value={soldService.seller}
-        label="Vendedor(a)"
+        id="employee"
+        name="employee"
+        value={value}
+        label="Colaborador(a)"
         onChange={handleChange}
       >
-        {servicesOptions.map((name) => (
+        {employeeOptions.map((name) => (
           <MenuItem key={name} value={name}>
             {name}
           </MenuItem>

@@ -12,82 +12,11 @@
       },
       "comment": "O mais rápido possível",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
-      "status": "NOT_INITIALIZED",
+      "services": ["Lavagem EXPRESS"],
+      "status": "ACTIVE",
       "location": "1",
-      "tasks": [
-        {
-          "id": 1,
-          "status": "NOT_INITIATED",
-          "service": "Aguardando",
-          "location": 0
-        },
-        {
-          "id": 2,
-          "status": "NOT_INITIATED",
-          "service": "Lavagem",
-          "location": 0
-        },
-        {
-          "id": 3,
-          "status": "NOT_INITIATED",
-          "service": "Acabamento",
-          "location": 0
-        },
-        {
-          "id": 4,
-          "status": "NOT_INITIATED",
-          "service": "Especial",
-          "location": 0
-        }
-      ]
-    },
-    {
-      "id": "a6672485-9e4a-43fe-9e8e-a63313258292",
-      "seller": "Diogo",
-      "payment": "Cartão de Crédito",
-      "client": {
-        "clientName": "Rafael",
-        "phone": "3519999999",
-        "plate": "CC13BB",
-        "model": "Ford ka branco"
-      },
-      "comment": "Atenção a mala",
-      "price": 78,
-      "services": [
-        "Higienização MALA",
-        "Lavagem INTERMEDIÁRIA (Interior OU Exterior)"
-      ],
-      "status": "NOT_INITIALIZED",
-      "location": "1",
-      "tasks": [
-        {
-          "id": 1,
-          "status": "NOT_INITIATED",
-          "service": "Aguardando",
-          "location": 0
-        },
-        {
-          "id": 2,
-          "status": "NOT_INITIATED",
-          "service": "Lavagem",
-          "location": 0
-        },
-        {
-          "id": 3,
-          "status": "NOT_INITIATED",
-          "service": "Acabamento",
-          "location": 0
-        },
-        {
-          "id": 4,
-          "status": "NOT_INITIATED",
-          "service": "Especial",
-          "location": 0
-        }
-      ]
+      "tasks": [],
+      "createdAt": "2022-10-08T00:56:55.500Z"
     },
     {
       "id": "33e2fec9-fd37-43c7-9c0a-785746175976",
@@ -99,39 +28,31 @@
         "plate": "DD78JJ",
         "model": "Uno Mille"
       },
+      "comment": [],
+      "price": 20,
+      "services": ["Lavagem EXPRESS"],
+      "status": "ACTIVE",
+      "location": "1",
+      "tasks": [],
+      "createdAt": "2022-10-08T00:56:55.500Z"
+    },
+    {
+      "id": "770208fd-3d23-4813-a843-b7d43eb65649",
+      "seller": "Jessica",
+      "payment": "Cartão de Débito",
+      "client": {
+        "clientName": "Matheus",
+        "phone": "35144444444",
+        "plate": "KL44MN",
+        "model": "Peugeot 2008 preto"
+      },
       "comment": "",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "NOT_INITIALIZED",
       "location": "1",
-      "tasks": [
-        {
-          "id": 1,
-          "status": "NOT_INITIATED",
-          "service": "Aguardando",
-          "location": 0
-        },
-        {
-          "id": 2,
-          "status": "NOT_INITIATED",
-          "service": "Lavagem",
-          "location": 0
-        },
-        {
-          "id": 3,
-          "status": "NOT_INITIATED",
-          "service": "Acabamento",
-          "location": 0
-        },
-        {
-          "id": 4,
-          "status": "NOT_INITIATED",
-          "service": "Especial",
-          "location": 0
-        }
-      ]
+      "tasks": [],
+      "createdAt": "2022-10-08T00:56:55.500Z"
     }
   ],
   "clients": [

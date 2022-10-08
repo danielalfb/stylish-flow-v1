@@ -9,14 +9,15 @@ import {
   Grid
 } from '@mui/material';
 import MultipleSelectService from './MultipleSelectService';
-import SingleSelectSeller from './SingleSelectSeller';
 import SingleSelectPayment from './SingleSelectPayment';
 import CommentsTextArea from '../CommentsTextArea';
 import TotalPriceCard from './TotalPriceCard';
-import { DefaultTasks, serviceOptions } from '../../util/ServiceOptions';
+import { serviceOptions } from '../../util/ServiceOptions';
 import { toast } from 'react-toastify';
 import { api } from '../../service/api';
 import { v4 as uuid } from 'uuid';
+import SingleSelectEmployee from '../ServiceManagementInputs/SingleSelectEmployee';
+import { useService } from '../../context/Services';
 
 export default function AddServiceModal() {
   const [openModal, setOpenModal] = useState(false);
@@ -33,6 +34,7 @@ export default function AddServiceModal() {
   const [services, setServices] = useState([]);
   const [comment, setComment] = useState('');
   const [totalPrice, setTotalPrice] = useState(0);
+  const { loadData } = useService();
 
   const handleChange = (e) => {
     setClient({ ...client, [e.target.id]: e.target.value });
@@ -49,11 +51,13 @@ export default function AddServiceModal() {
         services,
         status: 'NOT_INITIALIZED',
         location: '1',
-        tasks: DefaultTasks()
+        tasks: [],
+        createdAt: new Date()
       };
       await api.post('/services', reqBody);
       setOpenModal(false);
       toast.success('Serviço criado com sucesso.');
+      loadData();
     } catch (error) {
       console.log(error);
       toast.error('Falha na criação do serviço.');
@@ -72,6 +76,14 @@ export default function AddServiceModal() {
     }
   }, [services]);
 
+  const handleChangeSeller = (e) => {
+    setSoldService({ ...soldService, [e.target.name]: e.target.value });
+  };
+
+  const handleCommentChange = (e) => {
+    setComment(e.target.value);
+  };
+
   return (
     <>
       <Button
@@ -89,8 +101,12 @@ export default function AddServiceModal() {
       >
         <DialogTitle color="primary">Novo serviço</DialogTitle>
         <DialogContent sx={{ paddingTop: '16px!important' }}>
-          <Grid container spacing={2} rowSpacing={2}>
-            <Grid container item xs={6}>
+          <Grid
+            container
+            spacing={{ xs: 2, md: 2 }}
+            columns={{ xs: 1, sm: 3, md: 12 }}
+          >
+            <Grid item xs={2} sm={4} md={6}>
               <TextField
                 fullWidth
                 autoFocus
@@ -103,7 +119,7 @@ export default function AddServiceModal() {
                 onChange={handleChange}
               />
             </Grid>
-            <Grid container item xs={6}>
+            <Grid item xs={2} sm={4} md={6}>
               <TextField
                 autoFocus
                 fullWidth
@@ -116,7 +132,7 @@ export default function AddServiceModal() {
                 onChange={handleChange}
               />
             </Grid>
-            <Grid container item xs={6}>
+            <Grid item xs={2} sm={4} md={6}>
               <TextField
                 autoFocus
                 fullWidth
@@ -129,7 +145,7 @@ export default function AddServiceModal() {
                 onChange={handleChange}
               />
             </Grid>
-            <Grid container item xs={6}>
+            <Grid item xs={2} sm={4} md={6}>
               <TextField
                 autoFocus
                 fullWidth
@@ -142,13 +158,13 @@ export default function AddServiceModal() {
                 onChange={handleChange}
               />
             </Grid>
-            <Grid container item xs={6}>
-              <SingleSelectSeller
-                soldService={soldService}
-                setSoldService={setSoldService}
+            <Grid item xs={2} sm={4} md={6}>
+              <SingleSelectEmployee
+                value={soldService.seller}
+                handleChange={handleChangeSeller}
               />
             </Grid>
-            <Grid container item xs={6}>
+            <Grid item xs={2} sm={4} md={6}>
               <SingleSelectPayment
                 soldService={soldService}
                 setSoldService={setSoldService}
@@ -159,12 +175,21 @@ export default function AddServiceModal() {
             services={services}
             setServices={setServices}
           />
-          <CommentsTextArea comment={comment} setComment={setComment} />
+          <CommentsTextArea
+            value={comment}
+            handleChange={handleCommentChange}
+          />
           <TotalPriceCard value={totalPrice} />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpenModal(false)}>Cancelar</Button>
-          <Button onClick={handleSubmitService} disabled={totalPrice === 0}>
+          <Button color="secondary" onClick={() => setOpenModal(false)}>
+            Cancelar
+          </Button>
+          <Button
+            color="secondary"
+            onClick={handleSubmitService}
+            disabled={totalPrice === 0}
+          >
             Salvar
           </Button>
         </DialogActions>

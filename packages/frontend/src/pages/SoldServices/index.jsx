@@ -3,16 +3,11 @@ import { Box, Typography } from '@mui/material';
 import AddServiceModal from '../../components/AddServiceModal';
 import SoldServicesTabs from '../../components/SoldServicesTabs';
 import { api } from '../../service/api';
+import { useService } from '../../context/Services';
 
 function SoldServices() {
   const [todaysDate, setTodaysDate] = useState(new Date());
-  const [soldServices, setSoldServices] = useState([]);
-
-  const loadData = async () => {
-    const { data } = await api.get('/services');
-    console.log(data);
-    setSoldServices(data);
-  };
+  const { loadData } = useService();
 
   useEffect(() => {
     loadData();
@@ -27,14 +22,14 @@ function SoldServices() {
           marginBottom: 4
         }}
       >
-        <Typography variant="h1">
-          Serviços vendidos em {todaysDate.getDate()}/
-          {todaysDate.getMonth() + 1}/{todaysDate.getFullYear()}
+        <Typography color="primary" variant="h1">
+          Hoje, {todaysDate.getDate()}/{todaysDate.getMonth() + 1}/
+          {todaysDate.getFullYear()}
         </Typography>
         <AddServiceModal />
       </Box>
       <Box>
-        <SoldServicesTabs soldServices={soldServices} />
+        <SoldServicesTabs />
       </Box>
     </>
   );

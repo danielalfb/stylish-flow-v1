@@ -1,31 +1,29 @@
-export const DefaultTasks = () => {
-  return [
-    {
-      id: 1,
-      status: 'NOT_INITIATED',
-      service: 'Aguardando',
-      location: 0
-    },
-    {
-      id: 2,
-      status: 'NOT_INITIATED',
-      service: 'Lavagem',
-      location: 0
-    },
-    {
-      id: 3,
-      status: 'NOT_INITIATED',
-      service: 'Acabamento',
-      location: 0
-    },
-    {
-      id: 4,
-      status: 'NOT_INITIATED',
-      service: 'Especial',
-      location: 0
-    }
-  ];
-};
+export const defaultTasks = [
+  {
+    id: 1,
+    description: 'Aguardando'
+  },
+  {
+    id: 2,
+    description: 'Lavagem'
+  },
+  {
+    id: 3,
+    description: 'Interior'
+  },
+  {
+    id: 4,
+    description: 'Acabamento'
+  },
+  {
+    id: 5,
+    description: 'Especial'
+  },
+  {
+    id: 6,
+    description: 'Entrega'
+  }
+];
 
 export const serviceOptions = [
   {
@@ -35,17 +33,17 @@ export const serviceOptions = [
   },
   {
     id: 2,
-    description: 'Lavagem INTERMEDIÁRIA (Interior OU Exterior)',
+    description: 'Lavagem INTERMEDIÁRIA',
     price: 28.0
   },
   {
     id: 3,
-    description: 'Lavagem PREMIUM (mais acabamento)',
+    description: 'Lavagem PREMIUM',
     price: 38.0
   },
   {
     id: 4,
-    description: 'Lavagem MASTER (sujidade pesada)',
+    description: 'Lavagem MASTER',
     price: 55.0
   },
   {
@@ -89,3 +87,5 @@ export const serviceOptions = [
     price: 290.0
   }
 ];
+
+export const employeeOptions = ['Jessica', 'Diogo', 'Caio', 'Matheus'];

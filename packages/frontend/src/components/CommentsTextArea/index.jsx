@@ -1,6 +1,6 @@
 import { Box, TextField } from '@mui/material';
 
-export default function CommentsTextArea({ comment, setComment }) {
+export default function CommentsTextArea({ value, handleChange }) {
   return (
     <Box sx={{ width: '100%', marginTop: 1 }}>
       <TextField
@@ -9,12 +9,13 @@ export default function CommentsTextArea({ comment, setComment }) {
         multiline
         variant="outlined"
         margin="dense"
-        id="phone"
+        id="comment"
+        name="comment"
         label="Observações"
         type="text"
         rows={4}
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
+        value={value}
+        onChange={handleChange}
       />
     </Box>
   );
