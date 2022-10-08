@@ -50,7 +50,6 @@ export default function AddServiceModal() {
         price: totalPrice,
         services,
         status: 'NOT_INITIALIZED',
-        location: '1',
         tasks: [],
         createdAt: new Date()
       };

@@ -9,7 +9,7 @@ import { textTransform } from '@mui/system';
 import { Chip, Grid } from '@mui/material';
 import EditServiceModal from '../EditServiceModal';
 
-export default function SoldServiceCard({ service }) {
+export default function SoldServiceCard({ service, isPending }) {
   return (
     <Card sx={{ width: '100%' }}>
       <CardContent>
@@ -56,7 +56,7 @@ export default function SoldServiceCard({ service }) {
         <Button color="secondary" size="small">
           CANCELAR serviço
         </Button>
-        <EditServiceModal service={service} />
+        {isPending && <EditServiceModal service={service} />}
       </CardActions>
     </Card>
   );

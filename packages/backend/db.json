@@ -12,7 +12,9 @@
       },
       "comment": "O mais rápido possível",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "ACTIVE",
       "location": "1",
       "tasks": [],
@@ -30,7 +32,9 @@
       },
       "comment": [],
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "ACTIVE",
       "location": "1",
       "tasks": [],
@@ -48,11 +52,61 @@
       },
       "comment": "",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
       "createdAt": "2022-10-08T00:56:55.500Z"
+    },
+    {
+      "id": "5911e7ee-ee90-43c0-82aa-8ee2b5c31413",
+      "seller": "",
+      "payment": "Dinheiro",
+      "employee": "Jessica",
+      "client": {
+        "clientName": "Daniela",
+        "phone": "35199999999",
+        "plate": "CC40JJ",
+        "model": "Uno Mille"
+      },
+      "comment": "Teste",
+      "price": 20,
+      "services": [
+        "Lavagem EXPRESS"
+      ],
+      "status": "NOT_INITIALIZED",
+      "location": "1",
+      "tasks": [],
+      "createdAt": "2022-10-08T18:51:27.453Z"
+    },
+    {
+      "id": "242bc493-d191-496b-85af-ef9bdfd7992c",
+      "seller": "",
+      "payment": "Dinheiro",
+      "employee": "Caio",
+      "client": {
+        "clientName": "Rita",
+        "phone": "35199999999",
+        "plate": "YY40JJ",
+        "model": "Uno Mille"
+      },
+      "comment": "Teste",
+      "price": 20,
+      "services": [
+        "Lavagem EXPRESS"
+      ],
+      "status": "ACTIVE",
+      "location": "1",
+      "tasks": [
+        {
+          "description": "Aguardando",
+          "employee": "Diogo",
+          "comment": "Teste"
+        }
+      ],
+      "createdAt": "2022-10-08T18:51:50.858Z"
     }
   ],
   "clients": [

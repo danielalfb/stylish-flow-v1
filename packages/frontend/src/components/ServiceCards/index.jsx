@@ -1,8 +1,15 @@
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import SoldServiceCard from './SoldServiceCard';
 
 export default function ServiceCards({ serviceType }) {
+  if (serviceType.length < 1) {
+    return (
+      <Box>
+        <Typography>Não há serviços cadastrados.</Typography>
+      </Box>
+    );
+  }
   return (
     <Grid
       container
@@ -12,7 +19,10 @@ export default function ServiceCards({ serviceType }) {
     >
       {serviceType.map((service, index) => (
         <Grid item xs={2} sm={4} md={4} key={index}>
-          <SoldServiceCard service={service} />
+          <SoldServiceCard
+            service={service}
+            isPending={service.status === 'NOT_INITIALIZED'}
+          />
         </Grid>
       ))}
     </Grid>

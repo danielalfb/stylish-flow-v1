@@ -14,13 +14,16 @@ import { api } from '../../service/api';
 import { v4 as uuid } from 'uuid';
 import SingleInputLocation from '../ServiceManagementInputs/SingleInputLocation';
 import SingleSelectTask from '../ServiceManagementInputs/SingleSelectTask';
+import { useService } from '../../context/Services';
 
 export default function EditServiceModal({ service }) {
+  const { loadData } = useService();
   const [openModal, setOpenModal] = useState(false);
   const [task, setTask] = useState({
     description: '',
     employee: '',
-    comment: ''
+    comment: '',
+    updatedAt: new Date()
   });
 
   const handleChange = (e) => {
@@ -35,6 +38,7 @@ export default function EditServiceModal({ service }) {
         tasks: [task]
       });
       setOpenModal(false);
+      loadData();
       toast.success('Serviço editado com sucesso.');
     } catch (error) {
       console.log(error);
