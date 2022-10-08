@@ -122,7 +122,7 @@ const Header = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                color={page.path === pathname ? 'secondary' : 'white'}
+                color={page.path === pathname ? 'secondary' : 'text'}
                 key={page.label}
                 onClick={() => redirectAndCloseNavMenu(page)}
                 sx={{

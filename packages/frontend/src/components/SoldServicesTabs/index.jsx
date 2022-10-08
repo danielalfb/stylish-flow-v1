@@ -1,8 +1,10 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import SoldServiceCard from '../ServiceCards/SoldServiceCard';
+import ServiceCards from '../ServiceCards';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -31,12 +33,31 @@ function a11yProps(index) {
   };
 }
 
-export default function SoldServicesTabs() {
-  const [value, setValue] = React.useState(0);
+export default function SoldServicesTabs({ soldServices }) {
+  const [value, setValue] = useState(0);
+  const [pendingServices, setPendingServices] = useState([]);
+  const [activeServices, setActiveServices] = useState([]);
+  const [canceledServices, setCanceledServices] = useState([]);
+  const [doneServices, setDoneServices] = useState([]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  useEffect(() => {
+    setPendingServices(
+      soldServices.filter((service) => service.status === 'NOT_INITIALIZED')
+    );
+    setActiveServices(
+      soldServices.filter((service) => service.status === 'ACTIVE')
+    );
+    setCanceledServices(
+      soldServices.filter((service) => service.status === 'CANCELED')
+    );
+    setDoneServices(
+      soldServices.filter((service) => service.status === 'FINISHED')
+    );
+  }, [soldServices]);
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -54,16 +75,22 @@ export default function SoldServicesTabs() {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        Item One
+        <ServiceCards serviceType={pendingServices} />
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
+        {activeServices.map((service, index) => {
+          return <p key={index}>{service.id}</p>;
+        })}
       </TabPanel>
       <TabPanel value={value} index={2}>
-        Item Three
+        {canceledServices.map((service, index) => {
+          return <p key={index}>{service.id}</p>;
+        })}
       </TabPanel>
       <TabPanel value={value} index={3}>
-        Item 4
+        {doneServices.map((service, index) => {
+          return <p key={index}>{service.id}</p>;
+        })}
       </TabPanel>
     </Box>
   );

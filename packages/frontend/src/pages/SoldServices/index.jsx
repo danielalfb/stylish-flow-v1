@@ -1,10 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import AddServiceModal from '../../components/AddServiceModal';
 import SoldServicesTabs from '../../components/SoldServicesTabs';
+import { api } from '../../service/api';
 
 function SoldServices() {
   const [todaysDate, setTodaysDate] = useState(new Date());
+  const [soldServices, setSoldServices] = useState([]);
+
+  const loadData = async () => {
+    const { data } = await api.get('/services');
+    console.log(data);
+    setSoldServices(data);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
   return (
     <>
       <Box
@@ -21,7 +34,7 @@ function SoldServices() {
         <AddServiceModal />
       </Box>
       <Box>
-        <SoldServicesTabs />
+        <SoldServicesTabs soldServices={soldServices} />
       </Box>
     </>
   );

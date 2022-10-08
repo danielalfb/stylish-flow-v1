@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useId } from 'react';
 import {
   DialogActions,
   Button,
@@ -13,8 +13,10 @@ import SingleSelectSeller from './SingleSelectSeller';
 import SingleSelectPayment from './SingleSelectPayment';
 import CommentsTextArea from '../CommentsTextArea';
 import TotalPriceCard from './TotalPriceCard';
-import { useEffect } from 'react';
-import { serviceOptions } from '../../util/ServiceOptions';
+import { DefaultTasks, serviceOptions } from '../../util/ServiceOptions';
+import { toast } from 'react-toastify';
+import { api } from '../../service/api';
+import { v4 as uuid } from 'uuid';
 
 export default function AddServiceModal() {
   const [openModal, setOpenModal] = useState(false);
@@ -37,15 +39,25 @@ export default function AddServiceModal() {
   };
 
   const handleSubmitService = async () => {
-    const reqBody = {
-      ...soldService,
-      client,
-      services,
-      price: totalPrice,
-      comment
-    };
-    const { data } = await api.post('/services', reqBody);
-    // console.log(reqBody);
+    try {
+      const reqBody = {
+        id: uuid(),
+        ...soldService,
+        client,
+        comment,
+        price: totalPrice,
+        services,
+        status: 'NOT_INITIALIZED',
+        location: '1',
+        tasks: DefaultTasks()
+      };
+      await api.post('/services', reqBody);
+      setOpenModal(false);
+      toast.success('Serviço criado com sucesso.');
+    } catch (error) {
+      console.log(error);
+      toast.error('Falha na criação do serviço.');
+    }
   };
 
   useEffect(() => {
@@ -98,7 +110,7 @@ export default function AddServiceModal() {
                 variant="outlined"
                 id="phone"
                 label="Telefone"
-                type="text"
+                type="tel"
                 size="small"
                 value={client.phone}
                 onChange={handleChange}

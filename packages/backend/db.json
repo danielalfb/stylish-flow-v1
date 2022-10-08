@@ -1,6 +1,139 @@
 {
-  "services": [],
-
+  "services": [
+    {
+      "id": "d2aa5421-38bb-4774-b0b5-01f867879c78",
+      "seller": "Diogo",
+      "payment": "Dinheiro",
+      "client": {
+        "clientName": "Luciana",
+        "phone": "3510000000",
+        "plate": "AA45BB",
+        "model": "Clio cinza"
+      },
+      "comment": "O mais rápido possível",
+      "price": 20,
+      "services": [
+        "Lavagem EXPRESS"
+      ],
+      "status": "NOT_INITIALIZED",
+      "location": "1",
+      "tasks": [
+        {
+          "id": 1,
+          "status": "NOT_INITIATED",
+          "service": "Aguardando",
+          "location": 0
+        },
+        {
+          "id": 2,
+          "status": "NOT_INITIATED",
+          "service": "Lavagem",
+          "location": 0
+        },
+        {
+          "id": 3,
+          "status": "NOT_INITIATED",
+          "service": "Acabamento",
+          "location": 0
+        },
+        {
+          "id": 4,
+          "status": "NOT_INITIATED",
+          "service": "Especial",
+          "location": 0
+        }
+      ]
+    },
+    {
+      "id": "a6672485-9e4a-43fe-9e8e-a63313258292",
+      "seller": "Diogo",
+      "payment": "Cartão de Crédito",
+      "client": {
+        "clientName": "Rafael",
+        "phone": "3519999999",
+        "plate": "CC13BB",
+        "model": "Ford ka branco"
+      },
+      "comment": "Atenção a mala",
+      "price": 78,
+      "services": [
+        "Higienização MALA",
+        "Lavagem INTERMEDIÁRIA (Interior OU Exterior)"
+      ],
+      "status": "NOT_INITIALIZED",
+      "location": "1",
+      "tasks": [
+        {
+          "id": 1,
+          "status": "NOT_INITIATED",
+          "service": "Aguardando",
+          "location": 0
+        },
+        {
+          "id": 2,
+          "status": "NOT_INITIATED",
+          "service": "Lavagem",
+          "location": 0
+        },
+        {
+          "id": 3,
+          "status": "NOT_INITIATED",
+          "service": "Acabamento",
+          "location": 0
+        },
+        {
+          "id": 4,
+          "status": "NOT_INITIATED",
+          "service": "Especial",
+          "location": 0
+        }
+      ]
+    },
+    {
+      "id": "33e2fec9-fd37-43c7-9c0a-785746175976",
+      "seller": "Caio",
+      "payment": "Dinheiro",
+      "client": {
+        "clientName": "Luís",
+        "phone": "3513333333",
+        "plate": "DD78JJ",
+        "model": "Uno Mille"
+      },
+      "comment": "",
+      "price": 20,
+      "services": [
+        "Lavagem EXPRESS"
+      ],
+      "status": "NOT_INITIALIZED",
+      "location": "1",
+      "tasks": [
+        {
+          "id": 1,
+          "status": "NOT_INITIATED",
+          "service": "Aguardando",
+          "location": 0
+        },
+        {
+          "id": 2,
+          "status": "NOT_INITIATED",
+          "service": "Lavagem",
+          "location": 0
+        },
+        {
+          "id": 3,
+          "status": "NOT_INITIATED",
+          "service": "Acabamento",
+          "location": 0
+        },
+        {
+          "id": 4,
+          "status": "NOT_INITIATED",
+          "service": "Especial",
+          "location": 0
+        }
+      ]
+    }
+  ],
   "clients": [
     {
       "id": 1,
@@ -8,7 +141,6 @@
       "postId": 1
     }
   ],
-
   "employees": [
     {
       "name": "typicode"
