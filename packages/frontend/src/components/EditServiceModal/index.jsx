@@ -23,7 +23,7 @@ export default function EditServiceModal({ service }) {
     description: '',
     employee: '',
     comment: '',
-    updatedAt: new Date()
+    updatedAt: new Date().toISOString().split('T')[0]
   });
 
   const handleChange = (e) => {

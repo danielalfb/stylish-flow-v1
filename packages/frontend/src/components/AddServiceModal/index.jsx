@@ -1,4 +1,4 @@
-import { useState, useEffect, useId } from 'react';
+import { useState, useEffect } from 'react';
 import {
   DialogActions,
   Button,
@@ -18,6 +18,8 @@ import { api } from '../../service/api';
 import { v4 as uuid } from 'uuid';
 import SingleSelectEmployee from '../ServiceManagementInputs/SingleSelectEmployee';
 import { useService } from '../../context/Services';
+import { Add } from '@mui/icons-material';
+import { theme } from '../../theme';
 
 export default function AddServiceModal() {
   const [openModal, setOpenModal] = useState(false);

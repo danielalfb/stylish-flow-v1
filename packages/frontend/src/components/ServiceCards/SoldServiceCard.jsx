@@ -3,9 +3,7 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { textTransform } from '@mui/system';
 import { Chip, Grid } from '@mui/material';
 import EditServiceModal from '../EditServiceModal';
 import CancelServiceModal from '../CancelServiceModal';
@@ -30,7 +28,7 @@ export default function SoldServiceCard({ service, isPending }) {
             </Typography>
           </Box>
           <Typography sx={{ fontSize: 10 }} color="text.secondary" gutterBottom>
-            {new Date(service.createdAt).toLocaleString('pt-PT')}
+            {new Date(service.createdAt).toUTCString()}
           </Typography>
         </Grid>
 

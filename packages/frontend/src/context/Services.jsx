@@ -5,6 +5,7 @@ import { api } from '../service/api';
 const ServiceContext = createContext();
 
 export default function ServiceProvider({ children }) {
+  const [todaysDate, setTodaysDate] = useState(new Date());
   const [pendingServices, setPendingServices] = useState([]);
   const [activeServices, setActiveServices] = useState([]);
   const [canceledServices, setCanceledServices] = useState([]);
@@ -12,7 +13,9 @@ export default function ServiceProvider({ children }) {
 
   const loadData = async () => {
     try {
-      const { data } = await api.get('/services');
+      const { data } = await api.get(
+        `/services?createdAt=${todaysDate.toISOString().split('T')[0]}`
+      );
       setPendingServices(
         data.filter((service) => service.status === 'NOT_INITIALIZED')
       );
@@ -22,7 +25,7 @@ export default function ServiceProvider({ children }) {
       );
       setDoneServices(data.filter((service) => service.status === 'FINISHED'));
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 
@@ -33,7 +36,8 @@ export default function ServiceProvider({ children }) {
         activeServices,
         canceledServices,
         doneServices,
-        loadData
+        loadData,
+        todaysDate
       }}
     >
       {children}
@@ -49,13 +53,15 @@ export function useService() {
     activeServices,
     canceledServices,
     doneServices,
-    loadData
+    loadData,
+    todaysDate
   } = context;
   return {
     pendingServices,
     activeServices,
     canceledServices,
     doneServices,
-    loadData
+    loadData,
+    todaysDate
   };
 }

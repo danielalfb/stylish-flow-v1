@@ -11,7 +11,7 @@ export default function SingleSelectEmployee({ value, handleChange }) {
       <InputLabel id="demo-simple-select-label">Colaborador(a)</InputLabel>
       <Select
         labelId="demo-simple-select-label"
-        id="employee"
+        id="seller"
         name="employee"
         value={value}
         label="Colaborador(a)"

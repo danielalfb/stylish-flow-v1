@@ -51,6 +51,7 @@ export default function SoldServicesTabs() {
           onChange={handleChange}
           aria-label="basic tabs example"
           variant="scrollable"
+          allowScrollButtonsMobile
         >
           <Tab label="PENDENTE" {...a11yProps(0)} />
           <Tab label="INICIADO" {...a11yProps(1)} />

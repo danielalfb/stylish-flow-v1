@@ -6,7 +6,7 @@ const MainLayout = ({ children }) => {
   return (
     <>
       <Header />
-      <Box component="main" sx={{ padding: '2rem' }}>
+      <Box component="main" sx={{ padding: '1rem' }}>
         {children}
       </Box>
     </>

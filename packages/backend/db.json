@@ -12,11 +12,13 @@
       },
       "comment": "O mais rápido possível",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
-      "createdAt": "2022-10-08T00:56:55.500Z"
+      "createdAt": "2022-10-09T00:56:55.500Z"
     },
     {
       "id": "33e2fec9-fd37-43c7-9c0a-785746175976",
@@ -30,11 +32,13 @@
       },
       "comment": [],
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
-      "createdAt": "2022-10-08T00:56:55.500Z"
+      "createdAt": "2022-10-09T00:56:55.500Z"
     },
     {
       "id": "770208fd-3d23-4813-a843-b7d43eb65649",
@@ -48,11 +52,13 @@
       },
       "comment": "",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
-      "createdAt": "2022-10-08T00:56:55.500Z"
+      "createdAt": "2022-10-09T00:56:55.500Z"
     },
     {
       "id": "5911e7ee-ee90-43c0-82aa-8ee2b5c31413",
@@ -67,11 +73,13 @@
       },
       "comment": "Teste",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "CANCELED",
       "location": "1",
       "tasks": [],
-      "createdAt": "2022-10-08T18:51:27.453Z"
+      "createdAt": "2022-10-09T18:51:27.453Z"
     },
     {
       "id": "242bc493-d191-496b-85af-ef9bdfd7992c",
@@ -86,7 +94,9 @@
       },
       "comment": "Teste",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "ACTIVE",
       "location": "1",
       "tasks": [
@@ -96,7 +106,29 @@
           "comment": "Teste"
         }
       ],
-      "createdAt": "2022-10-08T18:51:50.858Z"
+      "createdAt": "2022-10-09T18:51:50.858Z"
+    },
+    {
+      "id": "af849652-eb16-4dda-b3ad-948daec7e075",
+      "seller": "",
+      "payment": "Cartão de Crédito",
+      "employee": "Diogo",
+      "client": {
+        "clientName": "Carlos",
+        "phone": "0000000000",
+        "plate": "AA00BB",
+        "model": "Clio"
+      },
+      "comment": "Teste",
+      "price": 86,
+      "services": [
+        "Lavagem EXPRESS",
+        "Lavagem INTERMEDIÁRIA",
+        "Lavagem PREMIUM"
+      ],
+      "status": "NOT_INITIALIZED",
+      "tasks": [],
+      "createdAt": "2022-10-09"
     }
   ],
   "clients": [
