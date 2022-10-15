@@ -34,6 +34,10 @@ function a11yProps(index) {
   };
 }
 
+function numberOfService(array) {
+  return array.length;
+}
+
 export default function SoldServicesTabs() {
   const [value, setValue] = useState(0);
   const { pendingServices, activeServices, canceledServices, doneServices } =
@@ -53,10 +57,22 @@ export default function SoldServicesTabs() {
           variant="scrollable"
           allowScrollButtonsMobile
         >
-          <Tab label="PENDENTE" {...a11yProps(0)} />
-          <Tab label="INICIADO" {...a11yProps(1)} />
-          <Tab label="CANCELADO" {...a11yProps(2)} />
-          <Tab label="CONCLUÍDO" {...a11yProps(3)} />
+          <Tab
+            label={`PENDENTE (${numberOfService(pendingServices)})`}
+            {...a11yProps(0)}
+          />
+          <Tab
+            label={`INICIADO  (${numberOfService(activeServices)})`}
+            {...a11yProps(1)}
+          />
+          <Tab
+            label={`CANCELADO  (${numberOfService(canceledServices)})`}
+            {...a11yProps(2)}
+          />
+          <Tab
+            label={`CONCLUÍDO  (${numberOfService(doneServices)})`}
+            {...a11yProps(3)}
+          />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>

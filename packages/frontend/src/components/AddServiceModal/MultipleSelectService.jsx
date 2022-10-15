@@ -29,7 +29,7 @@ export default function MultipleSelectService({ services, setServices }) {
 
   return (
     <>
-      <FormControl sx={{ width: '100%', marginTop: 2 }}>
+      <FormControl sx={{ width: '100%', marginTop: 2 }} required>
         <InputLabel id="demo-multiple-chip-label">Serviços</InputLabel>
         <Select
           labelId="demo-multiple-chip-label"

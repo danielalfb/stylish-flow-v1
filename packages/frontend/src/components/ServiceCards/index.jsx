@@ -6,7 +6,7 @@ export default function ServiceCards({ serviceType }) {
   if (serviceType.length < 1) {
     return (
       <Box>
-        <Typography>Não há serviços cadastrados.</Typography>
+        <Typography>Não há serviços.</Typography>
       </Box>
     );
   }

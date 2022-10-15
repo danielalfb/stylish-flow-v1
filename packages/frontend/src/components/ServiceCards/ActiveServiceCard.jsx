@@ -1,65 +1,140 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import { textTransform } from '@mui/system';
-import { Chip, Divider, Grid } from '@mui/material';
+import {
+  Typography,
+  CardContent,
+  CardActions,
+  Chip,
+  Divider,
+  Grid,
+  Button,
+  IconButton
+} from '@mui/material';
 import EditServiceModal from '../EditServiceModal';
-import CancelServiceModal from '../CancelServiceModal';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import PersonIcon from '@mui/icons-material/Person';
+import ForumIcon from '@mui/icons-material/Forum';
+import SkipNextIcon from '@mui/icons-material/SkipNext';
 
 export default function ActiveServiceCard({ service }) {
+  const [openUpdate, setOpenUpdate] = React.useState(false);
+  const itemsStyles = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: 1
+  };
+
   return (
-    <Card sx={{ width: '100%' }}>
-      <CardContent>
-        <Grid
-          container
-          direction={{ xs: 'column', md: 'row' }}
-          justifyContent={{ xs: 'flex-start', md: 'space-between' }}
-        >
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Typography
-              sx={{ fontSize: 20, fontWeight: 600 }}
-              color="text"
-              gutterBottom
+    <>
+      <Card sx={{ width: '100%', height: '100%' }}>
+        <CardContent>
+          <Grid
+            container
+            justifyContent="space-between"
+            sx={{ alignItems: 'center' }}
+          >
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Typography
+                sx={{ fontSize: '1rem', fontWeight: 600 }}
+                color="text"
+                gutterBottom
+              >
+                {service.client.plate}
+              </Typography>
+              <Typography sx={{ fontSize: '1rem' }} color="text" gutterBottom>
+                {service.client.model}
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 1,
+                padding: '6px 0'
+              }}
             >
-              {service.client.plate}
+              <Button
+                color="primary"
+                variant="contained"
+                size="small"
+                disableElevation
+              >
+                <ForumIcon fontSize="small" />
+              </Button>
+              <Button
+                color="primary"
+                variant="contained"
+                size="small"
+                disableElevation
+                onClick={() => setOpenUpdate(true)}
+              >
+                <SkipNextIcon fontSize="small" />
+              </Button>
+            </Box>
+          </Grid>
+          <Divider />
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 1,
+              marginTop: 2
+            }}
+          >
+            <Typography
+              variant="h6"
+              sx={{
+                ...itemsStyles,
+                fontSize: '1.1rem',
+                bottom: 0
+              }}
+            >
+              <FormatListBulletedIcon fontSize="inherit" color="secondary" />
+              {service.tasks[service.tasks.length - 1].description}
             </Typography>
-            <Typography sx={{ fontSize: 20 }} color="text" gutterBottom>
-              {service.client.model}
+            <Typography sx={{ ...itemsStyles, fontSize: '0.9rem' }}>
+              <PersonIcon fontSize="inherit" color="text" />
+              {service.tasks[service.tasks.length - 1].employee}
             </Typography>
+            <Typography
+              sx={{
+                fontSize: '0.8rem',
+                marginTop: 1,
+                padding: 1,
+                backgroundColor: '#f8f8f8',
+                borderRadius: 1,
+                border: '1px solid #eee'
+              }}
+            >
+              {service.comment}
+            </Typography>
+            <Box
+              sx={{
+                display: 'flex',
+                gap: 1,
+                marginTop: 2
+              }}
+            >
+              {service.services.map((item, index) => (
+                <Typography
+                  sx={{
+                    fontSize: '0.7rem',
+                    padding: '4px 8px',
+                    backgroundColor: '#6B7280',
+                    borderRadius: 6,
+                    color: '#fff'
+                  }}
+                  key={index}
+                >
+                  {item}
+                </Typography>
+              ))}
+            </Box>
           </Box>
-        </Grid>
-        <Divider />
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 1,
-            marginTop: 2
-          }}
-        >
-          <Typography variant="h6">
-            {service.tasks[service.tasks.length - 1].description}
-          </Typography>
-          <Typography sx={{ fontSize: 14 }}>
-            {service.tasks[service.tasks.length - 1].employee}
-          </Typography>
-          {service.services.map((item, index) => (
-            <Typography sx={{ fontSize: 14 }} key={index}>
-              {item}
-            </Typography>
-          ))}
-        </Box>
-      </CardContent>
-      {/* <CardActions sx={{ justifyContent: 'flex-end' }}>
-        {service.status !== 'CANCELED' && service.status !== 'FINISHED' && (
-          <CancelServiceModal service={service} />
-        )}
-        {isPending && <EditServiceModal service={service} />}
-      </CardActions> */}
-    </Card>
+        </CardContent>
+      </Card>
+      {openUpdate && <EditServiceModal service={service} />}
+    </>
   );
 }
