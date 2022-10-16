@@ -27,7 +27,11 @@ export default function SoldServiceCard({ service, isPending }) {
               {service.client.model}
             </Typography>
           </Box>
-          <Typography sx={{ fontSize: 10 }} color="text.secondary" gutterBottom>
+          <Typography
+            sx={{ fontSize: 10, height: '100%' }}
+            color="text.secondary"
+            gutterBottom
+          >
             {new Date(service.createdAt).toUTCString()}
           </Typography>
         </Grid>

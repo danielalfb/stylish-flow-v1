@@ -15,10 +15,9 @@ import EditServiceModal from '../EditServiceModal';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import PersonIcon from '@mui/icons-material/Person';
 import ForumIcon from '@mui/icons-material/Forum';
-import SkipNextIcon from '@mui/icons-material/SkipNext';
+import FinishServiceModal from '../FinishServiceModal';
 
 export default function ActiveServiceCard({ service }) {
-  const [openUpdate, setOpenUpdate] = React.useState(false);
   const itemsStyles = {
     display: 'flex',
     alignItems: 'center',
@@ -62,15 +61,12 @@ export default function ActiveServiceCard({ service }) {
               >
                 <ForumIcon fontSize="small" />
               </Button>
-              <Button
-                color="primary"
-                variant="contained"
-                size="small"
-                disableElevation
-                onClick={() => setOpenUpdate(true)}
-              >
-                <SkipNextIcon fontSize="small" />
-              </Button>
+              {service.tasks[service.tasks.length - 1].description ===
+              'Aguardando Entrega' ? (
+                <FinishServiceModal service={service} />
+              ) : (
+                <EditServiceModal service={service} isActive />
+              )}
             </Box>
           </Grid>
           <Divider />
@@ -134,7 +130,6 @@ export default function ActiveServiceCard({ service }) {
           </Box>
         </CardContent>
       </Card>
-      {openUpdate && <EditServiceModal service={service} />}
     </>
   );
 }

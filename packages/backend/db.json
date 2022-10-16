@@ -12,9 +12,7 @@
       },
       "comment": "O mais rápido possível",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
@@ -32,9 +30,7 @@
       },
       "comment": [],
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
@@ -52,9 +48,7 @@
       },
       "comment": "",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
@@ -73,9 +67,7 @@
       },
       "comment": "Teste",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "CANCELED",
       "location": "1",
       "tasks": [],
@@ -94,9 +86,7 @@
       },
       "comment": "Teste",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "ACTIVE",
       "location": "1",
       "tasks": [
@@ -142,10 +132,7 @@
       },
       "comment": "Atenção ao higienizar a mala",
       "price": 70,
-      "services": [
-        "Lavagem EXPRESS",
-        "Higienização MALA"
-      ],
+      "services": ["Lavagem EXPRESS", "Higienização MALA"],
       "status": "NOT_INITIALIZED",
       "tasks": [],
       "createdAt": "2022-10-09T17:54:45.287Z"
@@ -162,19 +149,17 @@
       },
       "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vehicula non mauris eu gravida.",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
-      "status": "ACTIVE",
+      "services": ["Lavagem EXPRESS"],
+      "status": "FINISHED",
       "tasks": [
         {
-          "description": "Lavagem",
+          "description": "Aguardando Entrega",
           "employee": "Jessica",
           "comment": "",
-          "updatedAt": "2022-10-15"
+          "updatedAt": "2022-10-16T14:54:27.971Z"
         }
       ],
-      "createdAt": "2022-10-15"
+      "createdAt": "2022-10-16"
     },
     {
       "id": "961b43fc-2969-43b7-9b4e-7e9acaf3829a",
@@ -188,20 +173,17 @@
       },
       "comment": "Atenção na mala",
       "price": 70,
-      "services": [
-        "Lavagem EXPRESS",
-        "Higienização MALA"
-      ],
+      "services": ["Lavagem EXPRESS", "Higienização MALA"],
       "status": "ACTIVE",
       "tasks": [
         {
-          "description": "Lavagem",
+          "description": "Acabamento",
           "employee": "Diogo",
-          "comment": "\nLorem ipsum dolor sit amet, consectetur adipiscing elit.",
-          "updatedAt": "2022-10-15T17:30:55.674Z"
+          "comment": "",
+          "updatedAt": "2022-10-16T17:27:17.993Z"
         }
       ],
-      "createdAt": "2022-10-15"
+      "createdAt": "2022-10-16"
     }
   ],
   "clients": [

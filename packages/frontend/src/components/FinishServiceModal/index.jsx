@@ -11,8 +11,9 @@ import {
 } from '@mui/material';
 import { toast } from 'react-toastify';
 import { api } from '../../service/api';
+import DoneIcon from '@mui/icons-material/Done';
 
-export default function CancelServiceModal({ service }) {
+export default function FinishServiceModal({ service }) {
   const { loadData } = useService();
   const [openModal, setOpenModal] = useState(false);
 
@@ -20,21 +21,27 @@ export default function CancelServiceModal({ service }) {
     try {
       await api.put(`/services/${service.id}`, {
         ...service,
-        status: 'CANCELED'
+        status: 'FINISHED'
       });
       setOpenModal(false);
       loadData();
-      toast.success('Serviço editado com sucesso.');
+      toast.success('Serviço finalizado com sucesso.');
     } catch (error) {
       console.log(error);
-      toast.error('Falha na edição do serviço.');
+      toast.error('Falha na finalização do serviço.');
     }
   };
 
   return (
     <>
-      <Button color="secondary" size="small" onClick={() => setOpenModal(true)}>
-        CANCELAR serviço
+      <Button
+        color="secondary"
+        variant="contained"
+        size="small"
+        disableElevation
+        onClick={() => setOpenModal(true)}
+      >
+        <DoneIcon fontSize="small" />
       </Button>
       <Dialog
         fullWidth
@@ -42,15 +49,16 @@ export default function CancelServiceModal({ service }) {
         onClose={() => setOpenModal(false)}
         maxWidth="sm"
       >
-        <DialogTitle color="primary">Deseja cancelar serviço?</DialogTitle>
-        <DialogContent sx={{ paddingTop: '16px!important' }}>
+        <DialogTitle color="primary">Finalizar serviço?</DialogTitle>
+        <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Esta ação é irreversível.
+            O resumo do serviço estará disponível na página inicial, sob a aba
+            de Serviços Concluídos.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpenModal(false)}>Fechar</Button>
-          <Button onClick={handleCancelService}>SIM, cancelar </Button>
+          <Button onClick={() => setOpenModal(false)}>Cancelar</Button>
+          <Button onClick={handleCancelService}>Sim </Button>
         </DialogActions>
       </Dialog>
     </>

@@ -21,7 +21,7 @@ export const defaultTasks = [
   },
   {
     id: 6,
-    description: 'Entrega'
+    description: 'Aguardando Entrega'
   }
 ];
 
