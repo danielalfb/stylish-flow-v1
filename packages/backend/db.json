@@ -192,13 +192,25 @@
         "Lavagem EXPRESS",
         "Higienização MALA"
       ],
-      "status": "ACTIVE",
+      "status": "FINISHED",
       "tasks": [
         {
           "description": "Acabamento",
           "employee": "Diogo",
           "comment": "",
           "updatedAt": "2022-10-16T17:27:17.993Z"
+        },
+        {
+          "description": "Especial",
+          "employee": "Caio",
+          "comment": "Teste de comentário 3",
+          "updatedAt": "2022-10-16T22:14:39.035Z"
+        },
+        {
+          "description": "Aguardando Entrega",
+          "employee": "Caio",
+          "comment": "Alertar o acréscimo de valor",
+          "updatedAt": "2022-10-16T22:19:20.566Z"
         }
       ],
       "createdAt": "2022-10-16"

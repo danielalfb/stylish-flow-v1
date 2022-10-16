@@ -27,7 +27,7 @@ export default function AllCommentsModal({ tasks }) {
 
   useEffect(() => {
     setEmptyComments(Object.values(tasks).every((task) => task.comment === ''));
-  }, []);
+  }, [tasks]);
 
   return (
     <>
@@ -46,36 +46,38 @@ export default function AllCommentsModal({ tasks }) {
         <DialogContent sx={{ paddingTop: '16px!important' }}>
           {tasks?.map((task, i) => {
             return (
-              <>
-                <Box key={i} sx={{ marginBottom: 2 }}>
-                  <Grid
-                    container
-                    justifyContent="space-between"
-                    sx={{ alignItems: 'center' }}
-                  >
-                    <Typography sx={{ ...itemsStyles, fontSize: '0.9rem' }}>
-                      <PersonIcon fontSize="inherit" color="secondary" />
-                      {task.employee}
+              task.comment !== '' && (
+                <>
+                  <Box key={i} sx={{ marginBottom: 2 }}>
+                    <Grid
+                      container
+                      justifyContent="space-between"
+                      sx={{ alignItems: 'center' }}
+                    >
+                      <Typography sx={{ ...itemsStyles, fontSize: '0.9rem' }}>
+                        <PersonIcon fontSize="inherit" color="secondary" />
+                        {task.employee}
+                      </Typography>
+                      <Typography sx={{ ...itemsStyles, fontSize: '0.7rem' }}>
+                        {new Date(task.updatedAt).toUTCString()}
+                      </Typography>
+                    </Grid>
+                    <Divider />
+                    <Typography
+                      sx={{
+                        fontSize: '0.8rem',
+                        marginTop: 1,
+                        padding: 1,
+                        backgroundColor: '#f8f8f8',
+                        borderRadius: 1,
+                        border: '1px solid #eee'
+                      }}
+                    >
+                      {task.comment}
                     </Typography>
-                    <Typography sx={{ ...itemsStyles, fontSize: '0.7rem' }}>
-                      {new Date(task.updatedAt).toUTCString()}
-                    </Typography>
-                  </Grid>
-                  <Divider />
-                  <Typography
-                    sx={{
-                      fontSize: '0.8rem',
-                      marginTop: 1,
-                      padding: 1,
-                      backgroundColor: '#f8f8f8',
-                      borderRadius: 1,
-                      border: '1px solid #eee'
-                    }}
-                  >
-                    {task.comment}
-                  </Typography>
-                </Box>
-              </>
+                  </Box>
+                </>
+              )
             );
           })}
         </DialogContent>
