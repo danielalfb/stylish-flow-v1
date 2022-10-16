@@ -28,11 +28,11 @@ export default function SoldServiceCard({ service, isPending }) {
             </Typography>
           </Box>
           <Typography
-            sx={{ fontSize: 10, height: '100%' }}
+            sx={{ fontSize: 12, height: '100%' }}
             color="text.secondary"
             gutterBottom
           >
-            {new Date(service.createdAt).toUTCString()}
+            {service.price}€
           </Typography>
         </Grid>
 

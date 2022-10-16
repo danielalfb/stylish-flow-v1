@@ -36,7 +36,7 @@ export default function EditServiceModal({ service, isActive }) {
       await api.put(`/services/${service.id}`, {
         ...service,
         status: 'ACTIVE',
-        tasks: [task]
+        tasks: [...service.tasks, task]
       });
       setOpenModal(false);
       loadData();

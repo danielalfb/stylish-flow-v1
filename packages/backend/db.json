@@ -12,7 +12,9 @@
       },
       "comment": "O mais rápido possível",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
@@ -30,7 +32,9 @@
       },
       "comment": [],
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
@@ -48,7 +52,9 @@
       },
       "comment": "",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
@@ -67,7 +73,9 @@
       },
       "comment": "Teste",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "CANCELED",
       "location": "1",
       "tasks": [],
@@ -86,7 +94,9 @@
       },
       "comment": "Teste",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "ACTIVE",
       "location": "1",
       "tasks": [
@@ -132,7 +142,10 @@
       },
       "comment": "Atenção ao higienizar a mala",
       "price": 70,
-      "services": ["Lavagem EXPRESS", "Higienização MALA"],
+      "services": [
+        "Lavagem EXPRESS",
+        "Higienização MALA"
+      ],
       "status": "NOT_INITIALIZED",
       "tasks": [],
       "createdAt": "2022-10-09T17:54:45.287Z"
@@ -149,7 +162,9 @@
       },
       "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vehicula non mauris eu gravida.",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "FINISHED",
       "tasks": [
         {
@@ -173,7 +188,10 @@
       },
       "comment": "Atenção na mala",
       "price": 70,
-      "services": ["Lavagem EXPRESS", "Higienização MALA"],
+      "services": [
+        "Lavagem EXPRESS",
+        "Higienização MALA"
+      ],
       "status": "ACTIVE",
       "tasks": [
         {
@@ -181,6 +199,39 @@
           "employee": "Diogo",
           "comment": "",
           "updatedAt": "2022-10-16T17:27:17.993Z"
+        }
+      ],
+      "createdAt": "2022-10-16"
+    },
+    {
+      "id": "65af377a-9f99-4a93-bf51-298a85130572",
+      "employee": "Diogo",
+      "payment": "Dinheiro",
+      "client": {
+        "clientName": "Teste",
+        "phone": "0000000000",
+        "plate": "Teste",
+        "model": "Teste"
+      },
+      "comment": "Teste de task",
+      "price": 86,
+      "services": [
+        "Lavagem INTERMEDIÁRIA",
+        "Higienização dos ESTOFOS"
+      ],
+      "status": "ACTIVE",
+      "tasks": [
+        {
+          "description": "Aguardando",
+          "employee": "Jessica",
+          "comment": "Teste de comentário",
+          "updatedAt": "2022-10-16T18:05:33.989Z"
+        },
+        {
+          "description": "Lavagem",
+          "employee": "Jessica",
+          "comment": "Teste de comentário 2",
+          "updatedAt": "2022-10-16T18:10:50.720Z"
         }
       ],
       "createdAt": "2022-10-16"
