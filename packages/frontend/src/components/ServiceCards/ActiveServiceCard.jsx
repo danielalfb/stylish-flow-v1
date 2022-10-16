@@ -14,8 +14,8 @@ import {
 import EditServiceModal from '../EditServiceModal';
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import PersonIcon from '@mui/icons-material/Person';
-import ForumIcon from '@mui/icons-material/Forum';
 import FinishServiceModal from '../FinishServiceModal';
+import AllCommentsModal from '../AllCommentsModal';
 
 export default function ActiveServiceCard({ service }) {
   const itemsStyles = {
@@ -53,14 +53,7 @@ export default function ActiveServiceCard({ service }) {
                 padding: '6px 0'
               }}
             >
-              <Button
-                color="primary"
-                variant="contained"
-                size="small"
-                disableElevation
-              >
-                <ForumIcon fontSize="small" />
-              </Button>
+              <AllCommentsModal tasks={service.tasks} />
               {service.tasks[service.tasks.length - 1].description ===
               'Aguardando Entrega' ? (
                 <FinishServiceModal service={service} />
