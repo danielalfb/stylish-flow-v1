@@ -26,7 +26,6 @@ const HistoryServices = () => {
         <Typography color="primary" variant="h1">
           Histórico de Serviços
         </Typography>
-        <AddServiceModal />
       </Box>
       <Box>
         <HistoryTable rows={allServices} loading={loading} />
