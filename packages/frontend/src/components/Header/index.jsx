@@ -22,11 +22,11 @@ const pages = [
   {
     label: 'Serviços Ativos',
     path: '/active'
+  },
+  {
+    label: 'Histórico',
+    path: '/history'
   }
-  // {
-  //   label: 'Histórico',
-  //   path: '/history'
-  // }
 ];
 
 const Header = () => {
@@ -96,11 +96,7 @@ const Header = () => {
                   key={page.label}
                   onClick={() => redirectAndCloseNavMenu(page)}
                 >
-                  <Typography
-                    textAlign="center"
-                    color="text"
-                    sx={{ fontWeight: 600, textTransform: 'uppercase' }}
-                  >
+                  <Typography textAlign="center" color="text">
                     {page.label}
                   </Typography>
                 </MenuItem>

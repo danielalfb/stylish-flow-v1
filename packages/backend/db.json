@@ -231,7 +231,7 @@
         "Lavagem INTERMEDIÁRIA",
         "Higienização dos ESTOFOS"
       ],
-      "status": "ACTIVE",
+      "status": "CANCELED",
       "tasks": [
         {
           "description": "Aguardando",
@@ -244,6 +244,39 @@
           "employee": "Jessica",
           "comment": "Teste de comentário 2",
           "updatedAt": "2022-10-16T18:10:50.720Z"
+        }
+      ],
+      "createdAt": "2022-10-16"
+    },
+    {
+      "id": "8fbb38f5-dbb2-4d8e-94fd-216bf8274ddd",
+      "employee": "Diogo",
+      "payment": "Dinheiro",
+      "client": {
+        "clientName": "Teste 2",
+        "phone": "000 00000 00000 00 ",
+        "plate": "TT55TT",
+        "model": "Teste"
+      },
+      "comment": "Comentário inicial",
+      "price": 70,
+      "services": [
+        "Lavagem EXPRESS",
+        "Higienização MALA"
+      ],
+      "status": "ACTIVE",
+      "tasks": [
+        {
+          "description": "Aguardando",
+          "employee": "Diogo",
+          "comment": "Antes iniciar, conferir os vidros.",
+          "updatedAt": "2022-10-16T23:08:45.152Z"
+        },
+        {
+          "description": "Lavagem",
+          "employee": "Jessica",
+          "comment": "Comentário teste 2",
+          "updatedAt": "2022-10-16T23:08:45.152Z"
         }
       ],
       "createdAt": "2022-10-16"

@@ -58,19 +58,19 @@ export default function SoldServicesTabs() {
           allowScrollButtonsMobile
         >
           <Tab
-            label={`PENDENTE (${numberOfService(pendingServices)})`}
+            label={`PENDENTEs (${numberOfService(pendingServices)})`}
             {...a11yProps(0)}
           />
           <Tab
-            label={`INICIADO  (${numberOfService(activeServices)})`}
+            label={`INICIADOS  (${numberOfService(activeServices)})`}
             {...a11yProps(1)}
           />
           <Tab
-            label={`CANCELADO  (${numberOfService(canceledServices)})`}
+            label={`CANCELADOS  (${numberOfService(canceledServices)})`}
             {...a11yProps(2)}
           />
           <Tab
-            label={`CONCLUÍDO  (${numberOfService(doneServices)})`}
+            label={`CONCLUÍDOS  (${numberOfService(doneServices)})`}
             {...a11yProps(3)}
           />
         </Tabs>

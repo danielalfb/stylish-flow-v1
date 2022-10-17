@@ -7,7 +7,7 @@ import { defaultTasks } from '../../util/ServiceOptions';
 
 export default function SingleSelectTask({ value, handleChange }) {
   return (
-    <FormControl fullWidth size="small">
+    <FormControl fullWidth size="small" required>
       <InputLabel id="demo-simple-select-label">Tarefa</InputLabel>
       <Select
         labelId="demo-simple-select-label"

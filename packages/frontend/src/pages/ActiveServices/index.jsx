@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useService } from '../../context/Services';
-import { Box, Grid } from '@mui/material';
+import { Box, CardMedia, Grid, Typography } from '@mui/material';
 import ActiveServiceCard from '../../components/ServiceCards/ActiveServiceCard';
 
 function ActiveServices() {
@@ -9,6 +9,33 @@ function ActiveServices() {
   useEffect(() => {
     loadData();
   }, []);
+
+  if (activeServices && activeServices.length < 1) {
+    return (
+      <Box
+        sx={{
+          width: '100%',
+          height: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          gap: 5
+        }}
+      >
+        <CardMedia
+          component="img"
+          sx={{
+            maxWidth: { xs: 350, md: 500 }
+          }}
+          src="../../public/empty.svg"
+        />
+        <Typography color="text" variant="h6">
+          Não há serviços ativos.
+        </Typography>
+      </Box>
+    );
+  }
 
   return (
     <Box sx={{ width: '100%' }}>

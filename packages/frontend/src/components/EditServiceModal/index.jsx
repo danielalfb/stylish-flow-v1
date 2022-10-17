@@ -1,4 +1,4 @@
-import { useState, useEffect, useId } from 'react';
+import { useState } from 'react';
 import {
   DialogActions,
   Button,
@@ -11,24 +11,29 @@ import CommentsTextArea from '../CommentsTextArea';
 import SingleSelectEmployee from '../ServiceManagementInputs/SingleSelectEmployee';
 import { toast } from 'react-toastify';
 import { api } from '../../service/api';
-import { v4 as uuid } from 'uuid';
-import SingleInputLocation from '../ServiceManagementInputs/SingleInputLocation';
 import SingleSelectTask from '../ServiceManagementInputs/SingleSelectTask';
 import { useService } from '../../context/Services';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 
+const initialValue = {
+  description: '',
+  employee: '',
+  comment: '',
+  updatedAt: new Date()
+};
+
 export default function EditServiceModal({ service, isActive }) {
   const { loadData } = useService();
   const [openModal, setOpenModal] = useState(false);
-  const [task, setTask] = useState({
-    description: '',
-    employee: '',
-    comment: '',
-    updatedAt: new Date()
-  });
+  const [task, setTask] = useState(initialValue);
 
   const handleChange = (e) => {
     setTask({ ...task, [e.target.name]: e.target.value });
+  };
+
+  const handleClose = () => {
+    setTask(initialValue);
+    setOpenModal(false);
   };
 
   const handleEditService = async () => {
@@ -40,6 +45,7 @@ export default function EditServiceModal({ service, isActive }) {
       });
       setOpenModal(false);
       loadData();
+      setTask(initialValue);
       toast.success('Serviço editado com sucesso.');
     } catch (error) {
       console.log(error);
@@ -69,12 +75,7 @@ export default function EditServiceModal({ service, isActive }) {
         </Button>
       )}
       {openModal && (
-        <Dialog
-          fullWidth
-          open={openModal}
-          onClose={() => setOpenModal(false)}
-          maxWidth="sm"
-        >
+        <Dialog fullWidth open={openModal} maxWidth="sm">
           <DialogTitle color="primary">
             {isActive ? 'Atualizar serviço' : 'Iniciar serviço'}
           </DialogTitle>
@@ -103,8 +104,13 @@ export default function EditServiceModal({ service, isActive }) {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={() => setOpenModal(false)}>Cancelar</Button>
-            <Button onClick={handleEditService}>Salvar</Button>
+            <Button onClick={handleClose}>Cancelar</Button>
+            <Button
+              disabled={task.description === '' || task.employee === ''}
+              onClick={handleEditService}
+            >
+              Salvar
+            </Button>
           </DialogActions>
         </Dialog>
       )}

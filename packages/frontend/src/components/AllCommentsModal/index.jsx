@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { useService } from '../../context/Services';
+import { useState, useEffect } from 'react';
 import {
   DialogActions,
   Button,
@@ -14,7 +13,7 @@ import {
 } from '@mui/material';
 import ForumIcon from '@mui/icons-material/Forum';
 import PersonIcon from '@mui/icons-material/Person';
-import { useEffect } from 'react';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 
 export default function AllCommentsModal({ tasks }) {
   const [openModal, setOpenModal] = useState(false);
@@ -52,9 +51,16 @@ export default function AllCommentsModal({ tasks }) {
                     <Grid
                       container
                       justifyContent="space-between"
-                      sx={{ alignItems: 'center' }}
+                      sx={{ alignItems: 'center', paddingBottom: 1 }}
                     >
                       <Typography sx={{ ...itemsStyles, fontSize: '0.9rem' }}>
+                        <Typography sx={{ ...itemsStyles, fontSize: '0.9rem' }}>
+                          <FormatListBulletedIcon
+                            fontSize="inherit"
+                            color="secondary"
+                          />
+                          {task.description}
+                        </Typography>
                         <PersonIcon fontSize="inherit" color="secondary" />
                         {task.employee}
                       </Typography>
