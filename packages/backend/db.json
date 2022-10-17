@@ -12,13 +12,11 @@
       },
       "comment": "O mais rápido possível",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
-      "createdAt": "2022-10-09T00:56:55.500Z"
+      "createdAt": "2022-10-09"
     },
     {
       "id": "33e2fec9-fd37-43c7-9c0a-785746175976",
@@ -32,13 +30,11 @@
       },
       "comment": [],
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
-      "createdAt": "2022-10-09T00:56:55.500Z"
+      "createdAt": "2022-10-09"
     },
     {
       "id": "770208fd-3d23-4813-a843-b7d43eb65649",
@@ -52,13 +48,11 @@
       },
       "comment": "",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
-      "createdAt": "2022-10-09T00:56:55.500Z"
+      "createdAt": "2022-10-09"
     },
     {
       "id": "5911e7ee-ee90-43c0-82aa-8ee2b5c31413",
@@ -73,13 +67,11 @@
       },
       "comment": "Teste",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "CANCELED",
       "location": "1",
       "tasks": [],
-      "createdAt": "2022-10-09T18:51:27.453Z"
+      "createdAt": "2022-10-09"
     },
     {
       "id": "242bc493-d191-496b-85af-ef9bdfd7992c",
@@ -94,9 +86,7 @@
       },
       "comment": "Teste",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "ACTIVE",
       "location": "1",
       "tasks": [
@@ -106,7 +96,7 @@
           "comment": "Teste"
         }
       ],
-      "createdAt": "2022-10-09T18:51:50.858Z"
+      "createdAt": "2022-10-09"
     },
     {
       "id": "af849652-eb16-4dda-b3ad-948daec7e075",
@@ -142,13 +132,10 @@
       },
       "comment": "Atenção ao higienizar a mala",
       "price": 70,
-      "services": [
-        "Lavagem EXPRESS",
-        "Higienização MALA"
-      ],
+      "services": ["Lavagem EXPRESS", "Higienização MALA"],
       "status": "NOT_INITIALIZED",
       "tasks": [],
-      "createdAt": "2022-10-09T17:54:45.287Z"
+      "createdAt": "2022-10-09"
     },
     {
       "id": "998680fb-ee8e-4bc8-aa4f-39dd7842e403",
@@ -162,9 +149,7 @@
       },
       "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vehicula non mauris eu gravida.",
       "price": 20,
-      "services": [
-        "Lavagem EXPRESS"
-      ],
+      "services": ["Lavagem EXPRESS"],
       "status": "FINISHED",
       "tasks": [
         {
@@ -188,10 +173,7 @@
       },
       "comment": "Atenção na mala",
       "price": 70,
-      "services": [
-        "Lavagem EXPRESS",
-        "Higienização MALA"
-      ],
+      "services": ["Lavagem EXPRESS", "Higienização MALA"],
       "status": "FINISHED",
       "tasks": [
         {
@@ -227,10 +209,7 @@
       },
       "comment": "Teste de task",
       "price": 86,
-      "services": [
-        "Lavagem INTERMEDIÁRIA",
-        "Higienização dos ESTOFOS"
-      ],
+      "services": ["Lavagem INTERMEDIÁRIA", "Higienização dos ESTOFOS"],
       "status": "CANCELED",
       "tasks": [
         {
@@ -260,10 +239,7 @@
       },
       "comment": "Comentário inicial",
       "price": 70,
-      "services": [
-        "Lavagem EXPRESS",
-        "Higienização MALA"
-      ],
+      "services": ["Lavagem EXPRESS", "Higienização MALA"],
       "status": "ACTIVE",
       "tasks": [
         {
@@ -280,6 +256,47 @@
         }
       ],
       "createdAt": "2022-10-16"
+    },
+    {
+      "id": "2e2bf5d4-4ba8-470d-bac6-865033b07aff",
+      "employee": "Jessica",
+      "payment": "Cartão de Crédito",
+      "client": {
+        "clientName": "Jurema",
+        "phone": "351000000000",
+        "plate": "EXH9Z3",
+        "model": "Jaguar"
+      },
+      "comment": "A cliente precisa retirar as marcas de tinta de caneta do cinto de segurança",
+      "price": 96,
+      "services": ["Higienização dos ESTOFOS", "Lavagem PREMIUM"],
+      "status": "NOT_INITIALIZED",
+      "tasks": [],
+      "createdAt": "2022-10-17"
+    },
+    {
+      "id": "9ff6b1fc-a4a9-47e6-9af0-41dcca027aa5",
+      "employee": "Caio",
+      "payment": "Dinheiro",
+      "client": {
+        "clientName": "Ataide",
+        "phone": "989710330",
+        "plate": "ZFZX400",
+        "model": "Mini Cooper"
+      },
+      "comment": "Retirar a resita do teto",
+      "price": 55,
+      "services": ["Lavagem MASTER"],
+      "status": "ACTIVE",
+      "tasks": [
+        {
+          "description": "Lavagem",
+          "employee": "Jessica",
+          "comment": "",
+          "updatedAt": "2022-10-17T22:56:52.145Z"
+        }
+      ],
+      "createdAt": "2022-10-17"
     }
   ],
   "clients": [

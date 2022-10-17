@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { Box, Typography } from '@mui/material';
 import AddServiceModal from '../../components/AddServiceModal';
 import { useService } from '../../context/Services';
+import HistoryTable from '../../components/HistoryTable';
 
 const HistoryServices = () => {
   const { loadHistoryData, loading, allServices } = useService();
@@ -9,6 +10,8 @@ const HistoryServices = () => {
   useEffect(() => {
     loadHistoryData();
   }, []);
+
+  console.log('allServices', allServices);
 
   return (
     <>
@@ -24,6 +27,9 @@ const HistoryServices = () => {
           Histórico de Serviços
         </Typography>
         <AddServiceModal />
+      </Box>
+      <Box>
+        <HistoryTable rows={allServices} loading={loading} />
       </Box>
     </>
   );
