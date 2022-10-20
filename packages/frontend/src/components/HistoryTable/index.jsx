@@ -12,6 +12,7 @@ import Paper from '@mui/material/Paper';
 import AddIcon from '@mui/icons-material/Add';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { visuallyHidden } from '@mui/utils';
+import { Typography } from '@mui/material';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -43,12 +44,20 @@ function stableSort(array, comparator) {
 
 const headCells = [
   {
-    id: 'client',
-    label: 'Cliente'
-  },
-  {
     id: 'date',
     label: 'Data'
+  },
+  {
+    id: 'model',
+    label: 'Modelo'
+  },
+  {
+    id: 'services',
+    label: 'Serviços'
+  },
+  {
+    id: 'seller',
+    label: 'Vendedor(a)'
   },
   {
     id: 'price',
@@ -57,14 +66,6 @@ const headCells = [
   {
     id: 'payment',
     label: 'Pagamento'
-  },
-  {
-    id: 'services',
-    label: 'Serviços'
-  },
-  {
-    id: 'details',
-    label: 'Detalhes'
   }
 ];
 
@@ -126,35 +127,29 @@ export default function HistoryTable({ rows }) {
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
         <TableContainer>
-          <Table
-            sx={{ minWidth: 750 }}
-            aria-labelledby="tableTitle"
-            size="medium"
-          >
+          <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
             <EnhancedTableHead
               order={order}
               orderBy={orderBy}
               onRequestSort={handleRequestSort}
               rowCount={rows.length}
             />
-            <TableBody>
+            <TableBody sx={{ fontSize: '0.6rem' }}>
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {
                   return (
-                    <TableRow key={row.name}>
-                      <TableCell component="th" scope="row">
-                        {row.client.clientName}
-                      </TableCell>
+                    <TableRow key={index}>
                       <TableCell>{row.createdAt}</TableCell>
-                      <TableCell>{row.price}</TableCell>
+                      <TableCell component="th" scope="row">
+                        {row.client.model}
+                      </TableCell>
+                      <TableCell>
+                        {row.services.map((item) => item).join(', ')}
+                      </TableCell>
+                      <TableCell>{row.seller || row.employee}</TableCell>
+                      <TableCell>{row.price} €</TableCell>
                       <TableCell>{row.payment}</TableCell>
-                      <TableCell>
-                        <AddIcon />
-                      </TableCell>
-                      <TableCell>
-                        <VisibilityIcon />
-                      </TableCell>
                     </TableRow>
                   );
                 })}
