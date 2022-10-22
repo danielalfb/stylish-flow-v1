@@ -77,11 +77,16 @@ function EnhancedTableHead(props) {
 
   return (
     <TableHead>
-      <TableRow>
+      <TableRow sx={{ backgroundColor: '#f2f2f2' }}>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
             sortDirection={orderBy === headCell.id ? order : false}
+            sx={{
+              fontSize: '0.7rem',
+              fontWeight: 600,
+              textTransform: 'uppercase'
+            }}
           >
             <TableSortLabel
               active={orderBy === headCell.id}
@@ -134,7 +139,7 @@ export default function HistoryTable({ rows }) {
               onRequestSort={handleRequestSort}
               rowCount={rows.length}
             />
-            <TableBody sx={{ fontSize: '0.6rem' }}>
+            <TableBody>
               {stableSort(rows, getComparator(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                 .map((row, index) => {

@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { api } from '../service/api';
 
 const ServiceContext = createContext();
@@ -11,8 +11,9 @@ export default function ServiceProvider({ children }) {
   const [activeServices, setActiveServices] = useState([]);
   const [canceledServices, setCanceledServices] = useState([]);
   const [doneServices, setDoneServices] = useState([]);
+  const [dateToFilter, setDateToFilter] = useState(null);
 
-  const loadData = async () => {
+  const loadData = async (date) => {
     try {
       setLoading(true);
       true;
@@ -36,13 +37,26 @@ export default function ServiceProvider({ children }) {
   const loadHistoryData = async () => {
     try {
       setLoading(true);
-      const { data } = await api.get(`/services?_sort=createdAt&_order=desc`);
+      console.log('entrou');
+      const { data } = await api.get(
+        `/services?${
+          dateToFilter
+            ? `createdAt=${new Date(dateToFilter).toISOString().split('T')[0]}`
+            : '_sort=createdAt&_order=desc'
+        }`
+      );
       setAllServices(data);
       setLoading(false);
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (!dateToFilter) {
+      loadHistoryData();
+    }
+  }, [dateToFilter]);
 
   return (
     <ServiceContext.Provider
@@ -55,7 +69,9 @@ export default function ServiceProvider({ children }) {
         loadData,
         loadHistoryData,
         todaysDate,
-        loading
+        loading,
+        dateToFilter,
+        setDateToFilter
       }}
     >
       {children}
@@ -75,7 +91,9 @@ export function useService() {
     loadData,
     loadHistoryData,
     todaysDate,
-    loading
+    loading,
+    dateToFilter,
+    setDateToFilter
   } = context;
   return {
     allServices,
@@ -86,6 +104,8 @@ export function useService() {
     loadData,
     loadHistoryData,
     todaysDate,
-    loading
+    loading,
+    dateToFilter,
+    setDateToFilter
   };
 }
