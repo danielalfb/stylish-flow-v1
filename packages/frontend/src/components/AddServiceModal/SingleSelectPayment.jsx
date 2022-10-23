@@ -4,12 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-const paymentOptions = [
-  'Cartão de Crédito',
-  'Cartão de Débito',
-  'Dinheiro',
-  'Vale'
-];
+const paymentOptions = ['Multibanco', 'Numerário', 'MB WAY'];
 
 export default function SingleSelectPayment({ soldService, setSoldService }) {
   const handleChange = (e) => {

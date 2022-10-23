@@ -1,14 +1,30 @@
 import React, { useEffect } from 'react';
 import { useService } from '../../context/Services';
-import { Box, CardMedia, Grid, Typography } from '@mui/material';
+import {
+  Box,
+  CardMedia,
+  CircularProgress,
+  Grid,
+  Typography
+} from '@mui/material';
 import ActiveServiceCard from '../../components/ServiceCards/ActiveServiceCard';
 
 function ActiveServices() {
-  const { loadData, activeServices } = useService();
+  const { loading, loadData, activeServices } = useService();
 
   useEffect(() => {
-    loadData();
-  }, []);
+    setTimeout(() => {
+      loadData();
+    }, 100000);
+  }, [activeServices]);
+
+  if (loading) {
+    return (
+      <Box sx={{ width: '100%' }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   if (activeServices && activeServices.length < 1) {
     return (

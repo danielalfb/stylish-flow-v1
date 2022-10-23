@@ -12,16 +12,18 @@ import {
 import { toast } from 'react-toastify';
 import { api } from '../../service/api';
 import DoneIcon from '@mui/icons-material/Done';
+import formatDate from '../../helper/formatDate';
 
 export default function FinishServiceModal({ service }) {
   const { loadData } = useService();
   const [openModal, setOpenModal] = useState(false);
 
-  const handleCancelService = async () => {
+  const handleCloseService = async () => {
     try {
       await api.put(`/services/${service.id}`, {
         ...service,
-        status: 'FINISHED'
+        status: 'FINISHED',
+        closedAt: formatDate(new Date())
       });
       setOpenModal(false);
       loadData();
@@ -58,7 +60,7 @@ export default function FinishServiceModal({ service }) {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setOpenModal(false)}>Cancelar</Button>
-          <Button onClick={handleCancelService}>Sim </Button>
+          <Button onClick={handleCloseService}>Sim </Button>
         </DialogActions>
       </Dialog>
     </>

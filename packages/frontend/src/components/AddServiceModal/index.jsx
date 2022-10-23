@@ -6,7 +6,8 @@ import {
   DialogContent,
   DialogTitle,
   TextField,
-  Grid
+  Grid,
+  DialogContentText
 } from '@mui/material';
 import MultipleSelectService from './MultipleSelectService';
 import SingleSelectPayment from './SingleSelectPayment';
@@ -39,10 +40,22 @@ export default function AddServiceModal() {
   const [services, setServices] = useState([]);
   const [comment, setComment] = useState('');
   const [totalPrice, setTotalPrice] = useState(0);
+  const [validForm, setValidForm] = useState(false);
   const { loadData } = useService();
 
   const handleChange = (e) => {
     setClient({ ...client, [e.target.id]: e.target.value });
+  };
+
+  const validateFields = () => {
+    if (
+      Object.values(client).every((item) => item === '') ||
+      Object.values(soldService).every((item) => item === '') ||
+      services.length < 1
+    ) {
+      setValidForm(false);
+    }
+    setValidForm(true);
   };
 
   const handleSubmitService = async () => {
@@ -67,6 +80,10 @@ export default function AddServiceModal() {
       toast.error('Falha na criação do serviço.');
     }
   };
+
+  useEffect(() => {
+    validateFields();
+  }, [client, soldService, services]);
 
   useEffect(() => {
     if (services.length > 0) {
@@ -104,7 +121,11 @@ export default function AddServiceModal() {
         maxWidth="md"
       >
         <DialogTitle color="primary">Novo serviço</DialogTitle>
-        <DialogContent sx={{ paddingTop: '16px!important' }}>
+        <DialogContent>
+          <DialogContentText sx={{ marginBottom: '20px!important' }}>
+            Preencha todos os campos obrigatórios para cadastrar um novo
+            serviço.
+          </DialogContentText>
           <form>
             <Grid
               container
@@ -132,7 +153,7 @@ export default function AddServiceModal() {
                   fullWidth
                   variant="outlined"
                   id="phone"
-                  label="Telefone"
+                  label="Contato"
                   type="tel"
                   size="small"
                   value={client.phone}
@@ -146,7 +167,7 @@ export default function AddServiceModal() {
                   fullWidth
                   variant="outlined"
                   id="plate"
-                  label="Placa"
+                  label="Matrícula"
                   type="text"
                   size="small"
                   value={client.plate}
@@ -199,7 +220,7 @@ export default function AddServiceModal() {
             type="submit"
             color="secondary"
             onClick={handleSubmitService}
-            disabled={totalPrice === 0}
+            disabled={validForm}
           >
             Salvar
           </Button>

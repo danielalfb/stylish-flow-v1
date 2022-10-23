@@ -16,7 +16,6 @@ export default function ServiceProvider({ children }) {
   const loadData = async (date) => {
     try {
       setLoading(true);
-      true;
       const { data } = await api.get(
         `/services?createdAt=${todaysDate.toISOString().split('T')[0]}`
       );
@@ -37,7 +36,6 @@ export default function ServiceProvider({ children }) {
   const loadHistoryData = async () => {
     try {
       setLoading(true);
-      console.log('entrou');
       const { data } = await api.get(
         `/services?${
           dateToFilter

@@ -3,15 +3,13 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import { useService } from '../../context/Services';
 import {
-  Box,
   Button,
   Chip,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
-  DialogTitle,
-  Typography
+  DialogTitle
 } from '@mui/material';
 
 export default function FilterByDate() {
@@ -40,17 +38,22 @@ export default function FilterByDate() {
       {!sentDate ? (
         <Button
           size="small"
-          color="secondary"
+          color="primary"
           variant="contained"
           onClick={() => setOpenModal(true)}
+          sx={{ fontSize: 12 }}
         >
           Filtro
         </Button>
       ) : (
         <Chip
-          label={sentDate}
+          label={
+            new Date(sentDate)
+              .toLocaleString('pt-PT', { timeZone: 'UTC' })
+              .split(',')[0]
+          }
           onDelete={handleDelete}
-          color="secondary"
+          color="primary"
           sx={{ borderRadius: '4px' }}
         />
       )}

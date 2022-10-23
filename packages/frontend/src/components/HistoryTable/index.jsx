@@ -9,10 +9,9 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
 import Paper from '@mui/material/Paper';
-import AddIcon from '@mui/icons-material/Add';
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import { visuallyHidden } from '@mui/utils';
-import { Typography } from '@mui/material';
+import formatDateToUtc from '../../util/formatDateToUtc';
+import { LinearProgress } from '@mui/material';
 
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
@@ -70,14 +69,14 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
-  const { order, orderBy, numSelected, rowCount, onRequestSort } = props;
+  const { order, orderBy, onRequestSort } = props;
   const createSortHandler = (property) => (event) => {
     onRequestSort(event, property);
   };
 
   return (
     <TableHead>
-      <TableRow sx={{ backgroundColor: '#f2f2f2' }}>
+      <TableRow sx={{ backgroundColor: '#fcfcfc' }}>
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}
@@ -107,7 +106,7 @@ function EnhancedTableHead(props) {
   );
 }
 
-export default function HistoryTable({ rows }) {
+export default function HistoryTable({ rows, loading }) {
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [page, setPage] = React.useState(0);
@@ -128,6 +127,16 @@ export default function HistoryTable({ rows }) {
     setPage(0);
   };
 
+  if (loading) {
+    return (
+      <Box sx={{ width: '100%' }}>
+        <Paper sx={{ width: '100%', mb: 2 }}>
+          <LinearProgress />
+        </Paper>
+      </Box>
+    );
+  }
+
   return (
     <Box sx={{ width: '100%' }}>
       <Paper sx={{ width: '100%', mb: 2 }}>
@@ -145,7 +154,7 @@ export default function HistoryTable({ rows }) {
                 .map((row, index) => {
                   return (
                     <TableRow key={index}>
-                      <TableCell>{row.createdAt}</TableCell>
+                      <TableCell>{formatDateToUtc(row.createdAt)}</TableCell>
                       <TableCell component="th" scope="row">
                         {row.client.model}
                       </TableCell>
@@ -169,6 +178,7 @@ export default function HistoryTable({ rows }) {
           page={page}
           onPageChange={handleChangePage}
           onRowsPerPageChange={handleChangeRowsPerPage}
+          labelRowsPerPage={'Linhas por página:'}
         />
       </Paper>
     </Box>

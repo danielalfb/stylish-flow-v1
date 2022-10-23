@@ -12,7 +12,9 @@
       },
       "comment": "O mais rápido possível",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
@@ -30,7 +32,9 @@
       },
       "comment": [],
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
@@ -48,7 +52,9 @@
       },
       "comment": "",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "NOT_INITIALIZED",
       "location": "1",
       "tasks": [],
@@ -67,7 +73,9 @@
       },
       "comment": "Teste",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "CANCELED",
       "location": "1",
       "tasks": [],
@@ -86,7 +94,9 @@
       },
       "comment": "Teste",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "ACTIVE",
       "location": "1",
       "tasks": [
@@ -132,7 +142,10 @@
       },
       "comment": "Atenção ao higienizar a mala",
       "price": 70,
-      "services": ["Lavagem EXPRESS", "Higienização MALA"],
+      "services": [
+        "Lavagem EXPRESS",
+        "Higienização MALA"
+      ],
       "status": "NOT_INITIALIZED",
       "tasks": [],
       "createdAt": "2022-10-09"
@@ -149,7 +162,9 @@
       },
       "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vehicula non mauris eu gravida.",
       "price": 20,
-      "services": ["Lavagem EXPRESS"],
+      "services": [
+        "Lavagem EXPRESS"
+      ],
       "status": "FINISHED",
       "tasks": [
         {
@@ -173,7 +188,10 @@
       },
       "comment": "Atenção na mala",
       "price": 70,
-      "services": ["Lavagem EXPRESS", "Higienização MALA"],
+      "services": [
+        "Lavagem EXPRESS",
+        "Higienização MALA"
+      ],
       "status": "FINISHED",
       "tasks": [
         {
@@ -209,7 +227,10 @@
       },
       "comment": "Teste de task",
       "price": 86,
-      "services": ["Lavagem INTERMEDIÁRIA", "Higienização dos ESTOFOS"],
+      "services": [
+        "Lavagem INTERMEDIÁRIA",
+        "Higienização dos ESTOFOS"
+      ],
       "status": "CANCELED",
       "tasks": [
         {
@@ -239,7 +260,10 @@
       },
       "comment": "Comentário inicial",
       "price": 70,
-      "services": ["Lavagem EXPRESS", "Higienização MALA"],
+      "services": [
+        "Lavagem EXPRESS",
+        "Higienização MALA"
+      ],
       "status": "ACTIVE",
       "tasks": [
         {
@@ -269,7 +293,10 @@
       },
       "comment": "A cliente precisa retirar as marcas de tinta de caneta do cinto de segurança",
       "price": 96,
-      "services": ["Higienização dos ESTOFOS", "Lavagem PREMIUM"],
+      "services": [
+        "Higienização dos ESTOFOS",
+        "Lavagem PREMIUM"
+      ],
       "status": "NOT_INITIALIZED",
       "tasks": [],
       "createdAt": "2022-10-17"
@@ -286,7 +313,9 @@
       },
       "comment": "Retirar a resita do teto",
       "price": 55,
-      "services": ["Lavagem MASTER"],
+      "services": [
+        "Lavagem MASTER"
+      ],
       "status": "ACTIVE",
       "tasks": [
         {
@@ -297,6 +326,110 @@
         }
       ],
       "createdAt": "2022-10-17"
+    },
+    {
+      "id": "b214b658-1fc0-4d08-b60d-0e0444d09ad2",
+      "employee": "Diogo",
+      "payment": "Dinheiro",
+      "client": {
+        "clientName": "Rita",
+        "phone": "3519999999999",
+        "plate": "AA00AA",
+        "model": "Jaguar"
+      },
+      "comment": "Remover mancha de tinta no capô",
+      "price": 105,
+      "services": [
+        "Lavagem MASTER",
+        "Higienização MALA"
+      ],
+      "status": "ACTIVE",
+      "tasks": [
+        {
+          "description": "Lavagem",
+          "employee": "Jessica",
+          "comment": "",
+          "updatedAt": "2022-10-23T09:44:45.690Z"
+        }
+      ],
+      "createdAt": "2022-10-23"
+    },
+    {
+      "id": "6b50c3e4-e57f-4913-a257-a68ca9ca705e",
+      "employee": "Jessica",
+      "payment": "Dinheiro",
+      "client": {
+        "clientName": "Roberta",
+        "phone": "3510000000",
+        "plate": "BB00BB",
+        "model": "BMW Série 1"
+      },
+      "comment": "",
+      "price": 20,
+      "services": [
+        "Lavagem EXPRESS"
+      ],
+      "status": "FINISHED",
+      "tasks": [
+        {
+          "description": "Aguardando",
+          "employee": "Jessica",
+          "comment": "",
+          "updatedAt": "2022-10-23T18:22:00.783Z"
+        },
+        {
+          "description": "Lavagem",
+          "employee": "Matheus",
+          "comment": "Carro sendo iniciado a partir das rodas",
+          "updatedAt": "2022-10-23T18:22:00.783Z"
+        },
+        {
+          "description": "Aguardando",
+          "employee": "Matheus",
+          "comment": "Prestar atenção às portas esquerdas",
+          "updatedAt": "2022-10-23T18:22:00.783Z"
+        },
+        {
+          "description": "Acabamento",
+          "employee": "Diogo",
+          "comment": "",
+          "updatedAt": "2022-10-23T18:22:00.783Z"
+        },
+        {
+          "description": "Aguardando Entrega",
+          "employee": "Diogo",
+          "comment": "",
+          "updatedAt": "2022-10-23T18:22:00.783Z"
+        }
+      ],
+      "createdAt": "2022-10-23",
+      "closedAt": "2022-10-23"
+    },
+    {
+      "id": "b8a1489a-5c5b-4a93-a52c-c72e65b4c430",
+      "employee": "Diogo",
+      "payment": "Cartão de Crédito",
+      "client": {
+        "clientName": "Matheus",
+        "phone": "000000000",
+        "plate": "CC00CC",
+        "model": " Renault Clio"
+      },
+      "comment": "Atenção às portas",
+      "price": 28,
+      "services": [
+        "Lavagem INTERMEDIÁRIA"
+      ],
+      "status": "ACTIVE",
+      "tasks": [
+        {
+          "description": "Lavagem",
+          "employee": "Caio",
+          "comment": "",
+          "updatedAt": "2022-10-23T18:22:00.783Z"
+        }
+      ],
+      "createdAt": "2022-10-23"
     }
   ],
   "clients": [

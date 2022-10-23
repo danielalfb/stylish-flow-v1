@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import { Chip, Grid } from '@mui/material';
 import EditServiceModal from '../EditServiceModal';
 import CancelServiceModal from '../CancelServiceModal';
+import ServiceChips from './ServiceChips';
 
 export default function SoldServiceCard({ service, isPending }) {
   return (
@@ -42,18 +43,7 @@ export default function SoldServiceCard({ service, isPending }) {
         >
           {service.client.clientName}
         </Typography>
-        <Box
-          sx={{
-            display: 'flex',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: 1
-          }}
-        >
-          {service.services.map((item, index) => (
-            <Chip key={index} label={item} size="small" />
-          ))}
-        </Box>
+        <ServiceChips service={service} />
       </CardContent>
       <CardActions sx={{ justifyContent: 'flex-end' }}>
         {service.status !== 'CANCELED' && service.status !== 'FINISHED' && (
