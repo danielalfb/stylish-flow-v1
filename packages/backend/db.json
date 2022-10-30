@@ -430,6 +430,65 @@
         }
       ],
       "createdAt": "2022-10-23"
+    },
+    {
+      "id": "a9da78d1-7963-42cf-bab1-66e2ad2cbb21",
+      "employee": "Caio",
+      "payment": "Numerário",
+      "client": {
+        "clientName": "Maria",
+        "phone": "351999999",
+        "plate": "CC00BB",
+        "model": "Renault Clio branco"
+      },
+      "comment": "",
+      "price": 88,
+      "services": [
+        "Lavagem PREMIUM",
+        "Higienização MALA"
+      ],
+      "status": "NOT_INITIALIZED",
+      "tasks": [],
+      "createdAt": "2022-10-30"
+    },
+    {
+      "id": "e83109cd-78e1-4aa4-98c5-51813c222fe8",
+      "employee": "Diogo",
+      "payment": "MB WAY",
+      "client": {
+        "clientName": "Antônio",
+        "phone": "351000000",
+        "plate": "DD00EE",
+        "model": "BMW Série 1"
+      },
+      "comment": "Atenção aos vidros",
+      "price": 55,
+      "services": [
+        "Lavagem MASTER"
+      ],
+      "status": "NOT_INITIALIZED",
+      "tasks": [],
+      "createdAt": "2022-10-30"
+    },
+    {
+      "id": "f4c0bd52-22ec-4787-9764-d4d582c68d2d",
+      "employee": "Diogo",
+      "payment": "MB WAY",
+      "client": {
+        "clientName": "Lucas",
+        "phone": "35100000000",
+        "plate": "FF00BB",
+        "model": "Dacia Sandero branco"
+      },
+      "comment": "Atenção à mala",
+      "price": 70,
+      "services": [
+        "Lavagem EXPRESS",
+        "Higienização MALA"
+      ],
+      "status": "NOT_INITIALIZED",
+      "tasks": [],
+      "createdAt": "2022-10-30"
     }
   ],
   "clients": [

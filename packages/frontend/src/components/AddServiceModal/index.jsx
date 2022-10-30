@@ -48,14 +48,24 @@ export default function AddServiceModal() {
   };
 
   const validateFields = () => {
-    if (
-      Object.values(client).every((item) => item === '') ||
-      Object.values(soldService).every((item) => item === '') ||
-      services.length < 1
-    ) {
+    if (Object.values(client).every((item) => item === '')) {
       setValidForm(false);
+    } else if (Object.values(soldService).every((item) => item === '')) {
+      setValidForm(false);
+    } else if (services.length < 1) {
+      setValidForm(false);
+    } else {
+      setValidForm(true);
     }
-    setValidForm(true);
+  };
+
+  const clearFields = () => {
+    setClient(clientInitialValue);
+    setSoldService(employeeInitialValue);
+    setServices([]);
+    setComment('');
+    setTotalPrice(0);
+    setValidForm(false);
   };
 
   const handleSubmitService = async () => {
@@ -74,6 +84,7 @@ export default function AddServiceModal() {
       await api.post('/services', reqBody);
       setOpenModal(false);
       toast.success('Serviço criado com sucesso.');
+      clearFields();
       loadData();
     } catch (error) {
       console.log(error);
@@ -220,7 +231,7 @@ export default function AddServiceModal() {
             type="submit"
             color="secondary"
             onClick={handleSubmitService}
-            disabled={validForm}
+            disabled={!validForm}
           >
             Salvar
           </Button>
