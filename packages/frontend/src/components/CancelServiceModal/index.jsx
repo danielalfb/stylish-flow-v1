@@ -24,10 +24,10 @@ export default function CancelServiceModal({ service }) {
       });
       setOpenModal(false);
       loadData();
-      toast.success('Serviço editado com sucesso.');
+      toast.success('Serviço cancelado com sucesso.');
     } catch (error) {
       console.log(error);
-      toast.error('Falha na edição do serviço.');
+      toast.error('Falha no cancelamento do serviço.');
     }
   };
 

@@ -12,40 +12,41 @@ export default function GenerateExcel({ rawData, columns }) {
 
   const exportToSpreadsheet = () => {
     setLoading(true);
-    const fileType =
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+    const fileType = 'application/octet-stream';
     const fileExtension = '.xlsx';
     const fileName = dateToFilter
       ? `StylishWash-${formatDateToUtc(dateToFilter)}`
       : `StylishWash-${formatDateToUtc(todaysDate)}`;
 
-    const treatedData = allServices.map((item) => {
-      return [
-        item.createdAt,
-        item.client.model,
-        item.services.map((item) => item).join(', '),
-        item.seller || item.employee,
-        item.price,
-        item.payment
-      ];
-    });
+    const data = allServices.map((item) => ({
+      createdAt: item.createdAt,
+      model: item.client.model,
+      services: item.services.map((item) => item).join(', '),
+      seller: item.seller || item.employee,
+      price: item.price,
+      payment: item.payment
+    }));
 
-    const data = [
-      ['Data', 'Modelo', 'Serviços', 'Vendedor(a)', 'Valor', 'Pagamento'],
-      ...treatedData
-    ];
+    // const data = [...treatedData];
+    const workSheet = XLSX.utils.json_to_sheet(data);
+    const workBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workBook, workSheet, 'Histórico');
+    XLSX.utils.sheet_add_aoa(
+      workSheet,
+      [['Data', 'Modelo', 'Serviços', 'Vendedor(a)', 'Valor', 'Pagamento']],
+      {
+        origin: 'A1'
+      }
+    );
+    const max_width = data.reduce(
+      (w, r) => Math.max(w, r.createdAt.length),
+      10
+    );
+    workSheet['!cols'] = [{ wch: max_width }];
 
-    const workSheet = XLSX.utils.aoa_to_sheet(data);
-    const workBook = {
-      Sheets: { data: workSheet, cols: [] },
-      SheetNames: ['Histórico']
-    };
-    const excelBuffer = XLSX.write(workBook, {
-      bookType: 'xlsx',
-      type: 'array'
+    XLSX.writeFileXLSX(workBook, fileName + fileExtension, {
+      compression: true
     });
-    const fileData = new Blob([excelBuffer], { type: fileType });
-    FileSaver.saveAs(fileData, fileName + fileExtension);
     setLoading(false);
   };
 

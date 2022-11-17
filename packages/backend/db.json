@@ -15,7 +15,7 @@
       "services": [
         "Lavagem EXPRESS"
       ],
-      "status": "NOT_INITIALIZED",
+      "status": "FINISHED",
       "location": "1",
       "tasks": [],
       "createdAt": "2022-10-09"
@@ -35,7 +35,7 @@
       "services": [
         "Lavagem EXPRESS"
       ],
-      "status": "NOT_INITIALIZED",
+      "status": "FINISHED",
       "location": "1",
       "tasks": [],
       "createdAt": "2022-10-09"
@@ -55,7 +55,7 @@
       "services": [
         "Lavagem EXPRESS"
       ],
-      "status": "NOT_INITIALIZED",
+      "status": "FINISHED",
       "location": "1",
       "tasks": [],
       "createdAt": "2022-10-09"
@@ -126,7 +126,7 @@
         "Lavagem INTERMEDIÁRIA",
         "Lavagem PREMIUM"
       ],
-      "status": "NOT_INITIALIZED",
+      "status": "FINISHED",
       "tasks": [],
       "createdAt": "2022-10-09"
     },
@@ -146,7 +146,7 @@
         "Lavagem EXPRESS",
         "Higienização MALA"
       ],
-      "status": "NOT_INITIALIZED",
+      "status": "FINISHED",
       "tasks": [],
       "createdAt": "2022-10-09"
     },
@@ -297,7 +297,7 @@
         "Higienização dos ESTOFOS",
         "Lavagem PREMIUM"
       ],
-      "status": "NOT_INITIALIZED",
+      "status": "FINISHED",
       "tasks": [],
       "createdAt": "2022-10-17"
     },
@@ -447,7 +447,7 @@
         "Lavagem PREMIUM",
         "Higienização MALA"
       ],
-      "status": "NOT_INITIALIZED",
+      "status": "FINISHED",
       "tasks": [],
       "createdAt": "2022-10-30"
     },
@@ -466,7 +466,7 @@
       "services": [
         "Lavagem MASTER"
       ],
-      "status": "NOT_INITIALIZED",
+      "status": "FINISHED",
       "tasks": [],
       "createdAt": "2022-10-30"
     },
@@ -486,9 +486,166 @@
         "Lavagem EXPRESS",
         "Higienização MALA"
       ],
-      "status": "NOT_INITIALIZED",
+      "status": "FINISHED",
       "tasks": [],
       "createdAt": "2022-10-30"
+    },
+    {
+      "id": "175954f6-e26f-4006-a63a-deee356cf9ed",
+      "employee": "Diogo",
+      "payment": "Multibanco",
+      "client": {
+        "clientName": "Eduardo",
+        "phone": "35197979000",
+        "plate": "AA00BB",
+        "model": "Clio branco"
+      },
+      "comment": "",
+      "price": 20,
+      "services": [
+        "Lavagem EXPRESS"
+      ],
+      "status": "CANCELED",
+      "tasks": [
+        {
+          "description": "Aguardando",
+          "employee": "Jessica",
+          "comment": "Atenção à porta direita",
+          "updatedAt": "2022-11-16T01:27:02.164Z"
+        }
+      ],
+      "createdAt": "2022-11-16"
+    },
+    {
+      "id": "a8a500a2-0d3f-470e-98fb-b8314855466d",
+      "employee": "Diogo",
+      "payment": "MB WAY",
+      "client": {
+        "clientName": "Jorge",
+        "phone": "351990077",
+        "plate": "DD66HJ",
+        "model": "Jaguar vermelho"
+      },
+      "comment": "Atenção à porta direita",
+      "price": 70,
+      "services": [
+        "Lavagem EXPRESS",
+        "Higienização MALA"
+      ],
+      "status": "CANCELED",
+      "tasks": [
+        {
+          "description": "Aguardando",
+          "employee": "Jessica",
+          "comment": "",
+          "updatedAt": "2022-11-16T01:51:27.542Z"
+        }
+      ],
+      "createdAt": "2022-11-16"
+    },
+    {
+      "id": "567e8ce9-4bde-46c9-8427-035f5f512ff2",
+      "employee": "Diogo",
+      "payment": "MB WAY",
+      "client": {
+        "clientName": "Jose",
+        "phone": "3519969699",
+        "plate": "AA77BB",
+        "model": "Clio branco"
+      },
+      "comment": "",
+      "price": 70,
+      "services": [
+        "Lavagem EXPRESS",
+        "Higienização MALA"
+      ],
+      "status": "CANCELED",
+      "tasks": [],
+      "createdAt": "2022-11-16"
+    },
+    {
+      "id": "72804911-bac4-4781-b4de-22b3553f514b",
+      "employee": "Jessica",
+      "payment": "Numerário",
+      "client": {
+        "clientName": "João",
+        "phone": "9733365",
+        "plate": "DD88VV",
+        "model": "Jaguar vermelho"
+      },
+      "comment": "Atenção às portas",
+      "price": 20,
+      "services": [
+        "Lavagem EXPRESS"
+      ],
+      "status": "NOT_INITIALIZED",
+      "tasks": [],
+      "createdAt": "2022-11-16"
+    },
+    {
+      "id": "16a06a64-2517-4e26-84ed-a905157d79e3",
+      "employee": "Jessica",
+      "payment": "MB WAY",
+      "client": {
+        "clientName": "João",
+        "phone": "99733440",
+        "plate": "FF99BB",
+        "model": "Clio branco"
+      },
+      "comment": "Atenção às portas",
+      "price": 20,
+      "services": [
+        "Lavagem EXPRESS"
+      ],
+      "status": "CANCELED",
+      "tasks": [
+        {
+          "description": "Lavagem",
+          "employee": "Jessica",
+          "comment": "",
+          "updatedAt": "2022-11-17T08:37:46.727Z"
+        }
+      ],
+      "createdAt": "2022-11-17"
+    },
+    {
+      "id": "78684f06-ad22-4f74-98f9-0eee4329f7b0",
+      "employee": "Diogo",
+      "payment": "MB WAY",
+      "client": {
+        "clientName": "Marta",
+        "phone": "976688",
+        "plate": "AA00BB",
+        "model": "Jaguar vermelho"
+      },
+      "comment": "Atenção às portas",
+      "price": 20,
+      "services": [
+        "Lavagem EXPRESS"
+      ],
+      "status": "FINISHED",
+      "tasks": [
+        {
+          "description": "Lavagem",
+          "employee": "Jessica",
+          "comment": "Iniciando pelos vidros",
+          "updatedAt": "2022-11-17T08:37:46.727Z"
+        },
+        {
+          "description": "Acabamento",
+          "employee": "Jessica",
+          "comment": "",
+          "updatedAt": "2022-11-17T08:37:46.727Z"
+        },
+        {
+          "description": "Aguardando Entrega",
+          "employee": "Jessica",
+          "comment": "",
+          "updatedAt": "2022-11-17T08:37:46.727Z"
+        }
+      ],
+      "createdAt": "2022-11-17",
+      "closedAt": "2022-11-17"
     }
   ],
   "clients": [
